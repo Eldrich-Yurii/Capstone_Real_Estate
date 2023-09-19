@@ -7,13 +7,18 @@
 </head>
 <body>
     <div>
-        <form action="submit">
-            <label for="">Email</label>
-            <input type="email" placeholder="example@gmail.com">
+        <form action="">
+            <label for="email">Email</label>
+            <input type="email" placeholder="example@gmail.com" value="submit">
             <label for="">Password</label>
-            <input type="password">
-            <button>Log in</button>
+            <input type="password" value="submit">
+            <button onclick="submit">Log in</button>
         </form>
     </div>
+    <script>
+        function submit() {
+             alert("Log in Successful!")
+        }
+    </script>
 </body>
 </html>
