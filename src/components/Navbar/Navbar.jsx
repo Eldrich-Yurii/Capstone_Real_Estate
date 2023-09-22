@@ -7,7 +7,7 @@ import Bg from './img/bg1.jpg'
 const navigation = [
   { name: 'Home', href: '#' },
   { name: 'Properties', href: '#' },
-  { name: 'Agent', href: '#' },
+  { name: 'Developers', href: '#' },
   { name: 'FAQs', href: '#' },
 ]
 
