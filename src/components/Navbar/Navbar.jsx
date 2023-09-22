@@ -43,7 +43,7 @@ export default function Navbar() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            <a href="#" className="text-sm font-semibold leading-6 text-white bg-purple-900 border-2 border-purple-900 px-3 py-1 rounded-md drop-shadow-lg hover:text-black hover:bg-purple-400 hover:border-purple-400 hover:drop-shadow-2xl">
               Inquire Now!
             </a>
           </div>
@@ -91,8 +91,7 @@ export default function Navbar() {
           </Dialog.Panel>
         </Dialog>
       </header>
-    
-                    <Search />
+          <Search />
     </div>
   )
 }
