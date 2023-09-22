@@ -1,14 +1,15 @@
+.title {
+    
+    display: flex;
+    justify-content: center;
+    
+}
 .form {
     display: flex;
     justify-content: center;
     
 }
 
-.title {
-    
-    display: flex;
-    justify-content: center;
-}
 
 .image {
     width: 1920px;
