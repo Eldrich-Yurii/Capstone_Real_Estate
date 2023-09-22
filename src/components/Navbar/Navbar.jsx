@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <div className="">
-      <img src={Bg} alt="" className='absolute brightness-75'/>
+      <img src={Bg} alt="" className='absolute brightness-50'/>
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
@@ -43,7 +43,7 @@ export default function Navbar() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-white bg-purple-900 border-2 border-purple-900 px-3 py-1 rounded-md drop-shadow-lg hover:text-black hover:bg-purple-400 hover:border-purple-400 hover:drop-shadow-2xl">
+            <a href="#" className="text-sm font-semibold leading-6 text-white bg-purple-900 border-2 border-purple-900 px-3 py-1 rounded-md drop-shadow-lg hover:text-black hover:bg-purple-500 hover:border-purple-500 hover:drop-shadow-2xl">
               Inquire Now!
             </a>
           </div>
