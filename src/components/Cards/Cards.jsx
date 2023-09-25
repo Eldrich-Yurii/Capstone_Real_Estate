@@ -6,8 +6,8 @@ function Cards() {
   return (
     <>
     <div>
-      <h1 className='pt-7 pl-5 text-2xl font-bold'>Popular Locations:</h1>
-      <div className=' mx-14 lg:flex justify-center'>
+      <h1 className='pt-7 pl-5 text-2xl md:lg:text-3xl font-bold'>Popular Locations:</h1>
+      <div className=' mx-14 md:lg:flex justify-center'>
           <div className="m-10 drop-shadow-2xl group duration-500 cursor-pointer group overflow-hidden relative text-gray-50 h-96 w-80  rounded-2xl hover:duration-700 hover:shadow-2xl">
             <div className="w-80 h-96 bg-purple-200 text-gray-100 pt-10">
               <img src="" alt="" />
