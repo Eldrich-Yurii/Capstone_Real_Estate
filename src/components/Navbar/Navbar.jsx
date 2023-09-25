@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Search from '../Search/Search'
-import Bg from './img/bg1.jpg'
+import { useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import Search from '../Search/Search';
+import Bg from './img/bg1.jpg';
+import Logo from './img/LOGO-NAME.svg';
 
 const navigation = [
   { name: 'Home', href: '#' },
@@ -16,13 +17,13 @@ export default function Navbar() {
 
   return (
     <div className="">
-      <img src={Bg} alt="" className='fixed:top brightness-50'/>
+      <img src={Bg} alt="" className='fixed:top brightness-75'/>
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8 " aria-label="Global">
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="#" className="-m-5 p-1.5">
               <span className="sr-only">Your Company</span>
-              LOGO
+              <img src={Logo} alt="" width={60} className=' mt-0 drop-shadow-md hover:drop-shadow-xl md:w-16 lg:w-20'/>
             </a>
           </div>
           <div className="flex lg:hidden">
