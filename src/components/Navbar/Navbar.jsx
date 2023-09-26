@@ -44,7 +44,7 @@ export default function Navbar() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-white bg-purple-900 border-2 border-purple-900 px-3 py-1 rounded-md drop-shadow-lg hover:text-black hover:bg-purple-600 hover:border-purple-600 hover:drop-shadow-2xl duration-500">
+            <a href="#" className="text-sm font-semibold leading-6 text-white bg-purple-800 border-2 border-purple-800 px-3 py-1 rounded-md drop-shadow-lg hover:text-black hover:bg-purple-600 hover:border-purple-600 hover:drop-shadow-2xl duration-500">
               Inquire Now!
             </a>
           </div>

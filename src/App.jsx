@@ -4,6 +4,7 @@ import Quote from './components/Quote/Quote';
 import Cards from './components/Cards/Cards';
 import Inquire from './components/Inquire/Inquire';
 import Footer from './components/Footer/Footer';
+import Step from './components/Quote/Step';
 import './App.css'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Navbar/>
       <Quote />
       <Cards />
+      <Step />
       <Inquire />
       <Footer />
 

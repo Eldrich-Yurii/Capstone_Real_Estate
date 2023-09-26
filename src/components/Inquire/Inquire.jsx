@@ -3,10 +3,11 @@ import React from 'react'
 function Inquire() {
   return (
     <div className=' flex justify-center grid-cols-6'>
-      <form action="" className='bg-white rounded-xl p-6 w-full m-5 border-2 drop-shadow-lg md:lg:w-1/2'>
+      <form action="" className='bg-white rounded-xl p-6 w-full m-5 border-2 drop-shadow-2xl md:lg:w-1/2'>
         
         <h2 className=' text-2xl font-bold pb-3'>Inquire Now!</h2>
-        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa veritatis molestiae veniam autem? Et nobis autem, provident natus doloribus, deserunt, modi dolor repellat adipisci cupiditate qui molestiae velit reiciendis.</p>
+        <br />
         <div>
           <div className='font-semibold pb-1'>
               <label htmlFor="name">Full Name</label>
