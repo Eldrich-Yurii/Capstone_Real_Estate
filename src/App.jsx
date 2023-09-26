@@ -5,6 +5,9 @@ import Cards from './components/Cards/Cards';
 import Inquire from './components/Inquire/Inquire';
 import Footer from './components/Footer/Footer';
 import Step from './components/Quote/Step';
+import Developers from './components/Developers/Developers';
+import FAQs from './components/FAQs/FAQs';
+import Properties from './components/Properties/Properties';
 import './App.css'
 
 function App() {
@@ -15,7 +18,10 @@ function App() {
       <Quote />
       <Cards />
       <Step />
+      <Properties />
+      <Developers />
       <Inquire />
+      <FAQs />
       <Footer />
 
     </>
