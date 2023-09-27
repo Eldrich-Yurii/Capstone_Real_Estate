@@ -15,7 +15,7 @@ function Cards() {
               <img src={Bulacan} alt=""  className='absolute'/>
                 
               
-              <span className='relative text-white text-xl font-bold flex justify-center items-center h-72 pb-14'>BULACAN</span>
+              <span className='relative text-white text-xl font-bold flex justify-center pt-5 h-72'>BULACAN</span>
             </div>
             <div className="absolute bg-purple-600 -bottom-24 w-80 p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500 group-hover:bg-purple-900">
               <span className="text-white font-bold text-md pb-3">See Locations area...</span>
@@ -32,10 +32,10 @@ function Cards() {
               <div className=' flex justify-center'>
               <img src={Manila} alt=""  className='absolute'/>
               </div>
-              <span className='relative text-white text-xl font-bold flex justify-center items-center h-72  pb-14'>METRO MANILA</span>
+              <span className='relative text-white text-xl font-bold flex justify-center pt-5 h-72 '>METRO MANILA</span>
             </div>
             <div className="absolute bg-purple-600 -bottom-24 w-80 p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500 group-hover:bg-purple-900">
-              <span className="text-white font-bold text-md pb-3">Locations areas...</span>
+              <span className="text-white font-bold text-md pb-3">See Locations areas...</span>
                       <hr />
                   <p className="text-neutral-800">
                     <ul className='text-white font-bold'>
@@ -51,10 +51,10 @@ function Cards() {
               <div className=' flex justify-center '>
               <img src={Cavite} alt=""  className='absolute'/>
               </div>
-              <span className='relative text-white text-xl font-bold flex justify-center items-center h-72 pb-14'>CAVITE</span>
+              <span className='relative text-white text-xl font-bold flex justify-center pt-5 h-72'>CAVITE</span>
             </div>
             <div className="absolute bg-purple-600 -bottom-24 w-80 p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500 group-hover:bg-purple-900">
-              <span className="text-white font-bold text-md pb-3">Locations areas...</span>
+              <span className="text-white font-bold text-md pb-3">See Locations areas...</span>
                         <hr />
                   <p className="text-neutral-800">
                     <ul className='text-white font-bold'>
