@@ -1,7 +1,9 @@
 import React from 'react'
+import Pic from './img/pic.jpg'
 
 function Inquire() {
   return (
+    <>
     <div className=' flex justify-center grid-cols-6'>
       <form action="" className='bg-white rounded-xl p-6 w-full m-5 border-2 drop-shadow-2xl md:lg:w-1/2'>
         
@@ -101,6 +103,7 @@ function Inquire() {
         </div>
       </form>
     </div>
+  </>
   )
 }
 

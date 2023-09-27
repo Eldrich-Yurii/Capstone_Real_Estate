@@ -15,51 +15,51 @@ function Developers() {
         <div>
             <h1 className=' bg-purple-100 pt-7 pl-5 text-2xl md:lg:text-3xl font-bold text-gray-900'>Developers</h1>
         </div>
-        <div className='grid grid-cols-4 gap-3 p-4 w-full h-60 mx-1 bg-purple-100 shadow-xl md:lg:flex justify-around items-center md:lg:h-48  '>
+        <div className='grid grid-cols-4 gap-3 p-4 w-full h-60 bg-purple-100 shadow-xl md:lg:flex justify-around items-center md:lg:h-48  '>
             <div className=' drop-shadow-xl'>
-                <img src={Apec} alt=""  className='p-2 w-24 md:lg:w-28 rounded-full'/>
+                <img src={Apec} alt=""  className='p-2 w-24 md:lg:w-28 rounded-full hover:scale-110 duration-500'/>
                 <div className='flex justify-center pt-2'> 
                     <p className='text-sm font-semibold'>APEC HOMES</p>  
                 </div>
             </div>
             <div className=' drop-shadow-xl'>
-                <img src={Ayala} alt="" className='p-2 w-24 md:lg:w-28 rounded-full'/>  
+                <img src={Ayala} alt="" className='p-2 w-24 md:lg:w-28 rounded-full hover:scale-110 duration-500'/>  
                 <div className='flex justify-center pt-2'> 
                     <p className='text-sm font-semibold'>AYALA LAND</p>  
                 </div>
             </div>
             <div className=' drop-shadow-xl'>
-                <img src={Dmci} alt="" className='p-2 w-24 md:lg:w-28 rounded-full'/>  
+                <img src={Dmci} alt="" className='p-2 w-24 md:lg:w-28 rounded-full hover:scale-110 duration-500'/>  
                 <div className='flex justify-center pt-2'> 
                     <p className='text-sm font-semibold'>DMCI</p>  
                 </div>
             </div>
             <div className=' drop-shadow-xl'>
-                <img src={Lumina} alt="" className='p-2 w-24 md:lg:w-28 rounded-full'/>  
+                <img src={Lumina} alt="" className='p-2 w-24 md:lg:w-28 rounded-full hover:scale-110 duration-500'/>  
                 <div className='flex justify-center pt-2'> 
                     <p className='text-sm font-semibold'>LUMINA</p>  
                 </div>
             </div>
             <div className=' drop-shadow-xl'>
-                <img src={Megaworld} alt="" className='p-2 w-24 md:lg:w-28 rounded-full'/>  
+                <img src={Megaworld} alt="" className='p-2 w-24 md:lg:w-28 rounded-full hover:scale-110 duration-500'/>  
                 <div className='flex justify-center pt-2'> 
                     <p className='text-sm font-semibold'>MEGAWORLD</p>  
                 </div>
             </div>
             <div className=' drop-shadow-xl'>
-                <img src={Raemulan} alt="" className='p-2 w-24 md:lg:w-28 rounded-full'/>  
+                <img src={Raemulan} alt="" className='p-2 w-24 md:lg:w-28 rounded-full hover:scale-110 duration-500'/>  
                 <div className='flex justify-center pt-2'> 
                     <p className='text-sm font-semibold'>RAEMULAN</p>  
                 </div>
             </div>
             <div className=' drop-shadow-xl'>
-                <img src={Smdc} alt="" className='p-2 w-24 md:lg:w-28 rounded-full'/>  
+                <img src={Smdc} alt="" className='p-2 w-24 md:lg:w-28 rounded-full hover:scale-110 duration-500'/>  
                 <div className='flex justify-center pt-2'> 
                     <p className='text-sm font-semibold'>SMDC</p>  
                 </div>
            </div>
             <div className=' drop-shadow-xl'>
-                <img src={Solar} alt="" className='p-2 w-24 md:lg:w-28 rounded-full'/>  
+                <img src={Solar} alt="" className='p-2 w-24 md:lg:w-28 rounded-full hover:scale-110 duration-500'/>  
                 <div className='flex justify-center pt-2'> 
                     <p className='text-sm font-semibold'>SOLAR RESOURCE</p>  
                 </div>
