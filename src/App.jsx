@@ -6,8 +6,8 @@ import Inquire from './components/Inquire/Inquire';
 import Footer from './components/Footer/Footer';
 import Step from './components/Quote/Step';
 import Developers from './components/Developers/Developers';
-import FAQs from './components/FAQs/FAQs';
 import Properties from './components/Properties/Properties';
+import Faqs from './components/Faqs/Faqs'
 import './App.css'
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <Properties />
       <Developers />
       <Inquire />
-      <FAQs />
+      <Faqs />
       <Footer />
 
     </>
