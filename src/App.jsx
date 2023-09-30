@@ -10,6 +10,7 @@ import Step from './components/Quote/Step';
 import Developers from './components/Developers/Developers';
 import Agent from './components/Agent/Agent';
 import Properties from './components/Properties/Properties';
+import Form from './components/Form/Form';
 import Faqs from './components/Faqs/Faqs'
 import Footer from './components/Footer/Footer';
 import './App.css'
@@ -19,16 +20,19 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Properties />
       <Quote />
-      <Cards />
+      <Properties />
       <Bullets />
-      <div className='mt-10 mx-16 w-11/12 border-b-4 border-purple-400 rounded-xl mb-10'/>
+      <div className='mt-10 mx-16 w-11/12 border-b-2 border-purple-400 rounded-xl mb-10'/>
+      <Cards />
+      <div className='mt-10 mx-16 w-11/12 border-b-2 border-purple-400 rounded-xl mb-10'/>
+      <Developers />
       <Quote2 />
       <Step />
-      <Developers />
       <Agent />
-      
+      <div className='mt-10 mx-16 w-11/12 border-b-2 border-purple-400 rounded-xl mb-10'/>
+      <Form />
+      <div className='mt-10 mx-16 w-11/12 border-b-2 border-purple-400 rounded-xl mb-10'/>
       <Faqs />
       <Footer />
 

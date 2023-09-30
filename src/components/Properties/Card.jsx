@@ -124,13 +124,13 @@ const Card = () => {
 
   return (
     <>
-    <div className='mx-auto w-11/12'>
+    <div className='pb-3 mx-auto w-11/12'>
       <Slider {...settings}  className='drop-shadow-lg'>
               {data.map ((item) => {
                 return (
                   
-                    <div className='h-72 p-2' key={item.id}>
-                      <div className='bg-purple-200 h-96'>
+                    <div className='h-72 p-2 pb-4' key={item.id}>
+                      <div className='bg-purple-200 '>
                         <img src={item.img} alt="/" className='w-[500px] h-56 cursor-pointer hover:scale-105 ease-in-out duration-500'/>
                           <div>
                             <h2 className='p-2 font-bold'>{item.desc}</h2>

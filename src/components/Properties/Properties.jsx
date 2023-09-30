@@ -4,8 +4,8 @@ import Card from './Card'
 function Properties() {
   return (
     <>
-    <div className='h-screen py-24 bg-purple-200'>
-      <h1 className='pt-7 pl-5 text-2xl md:lg:text-3xl font-bold'>Properties</h1>  
+    <div className=' h-[450px]  bg-purple-200'>
+      <h1 className='pt-7 pb-7 text-gray-900 text-2xl md:lg:text-3xl font-bold text-center'>Featured Properties</h1>  
       <div>
         <Card />
       </div>

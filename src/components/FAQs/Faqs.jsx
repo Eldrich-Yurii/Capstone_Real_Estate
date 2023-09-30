@@ -5,11 +5,11 @@ export default function Accordion() {
       <>
       <div>
         <div>
-            <h1 className="pt-7 pl-5 text-2xl md:lg:text-3xl font-bold">FAQs</h1>
+            <h1 className="text-2xl md:lg:text-3xl font-bold text-center">FREQUENTLY ASKED QUESTIONS</h1>
         </div>
-        <div className="w-full px-10 pt-6">
-
-            <div className="w-full mb-16 p-2 mx-auto bg-white drop-shadow-lg rounded-2xl">
+        <div className="mx-auto w-10/12 pt-6">
+            
+            <div className="mb-16 p-2  bg-white drop-shadow-xl rounded-2xl">
                 <Disclosure>
                     {({ open }) => (
                       <>
@@ -72,7 +72,7 @@ export default function Accordion() {
                     {({ open }) => (
                         <>
                             <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                                <span>Do you offer Property through PAG-IBIG?</span>
+                                <span>What is th difference between PRE_SELLING and RFO?</span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -100,7 +100,7 @@ export default function Accordion() {
                     {({ open }) => (
                         <>
                             <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                                <span>Do you offer Property through PAG-IBIG?</span>
+                                <span>When can we do site visit?</span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"

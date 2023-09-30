@@ -3,13 +3,19 @@ import EstateAgent from './img/Agent.jpg'
 
 function Agent() {
   return (
-    <div className='h-full p-16 bg-zinc-100 shadow-inner'>
+    <div className='h-full px-16 pt-16 bg-zinc-100 shadow-inner'>
       <div>
-        <h1 className='text-3xl font-bold'>REAL ESTATE AGENT</h1>
+        <h1 className='text-3xl font-bold text-center'>REAL ESTATE <span className=' text-orange-500'>AGENT</span></h1>
       </div>
       <div className='pt-12 grid pb-12 grid-cols-2'>
           <div className='flex justify-center'>
+            <div className='absolute -ml-56 text-lg font-extrabold text-orange-600 leading-none'>
+              <p>______</p>
+              <p>______</p>
+              <p>______</p>
+            </div>
             <img src={EstateAgent} alt="" className='shadow-2xl w-64 rounded-t-full '/>
+          <div className='absolute w-14 h-14 mt-72 ml-[245px] bg-orange-600 rounded-l-full'></div>
           </div>
           <div className='flex justify-start items-end pr-36'>
             <p className='font-semibold text-lg'>
