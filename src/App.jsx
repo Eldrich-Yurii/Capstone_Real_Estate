@@ -6,7 +6,6 @@ import Quote from './components/Quote/Quote';
 import Cards from './components/Cards/Cards';
 import Quote2 from './components/Quote/Quote2';
 import Bullets from './components/Bullets/Bullets';
-import Inquire from './components/Inquire/Inquire';
 import Step from './components/Quote/Step';
 import Developers from './components/Developers/Developers';
 import Agent from './components/Agent/Agent';
@@ -29,7 +28,7 @@ function App() {
       <Step />
       <Developers />
       <Agent />
-      <Inquire />
+      
       <Faqs />
       <Footer />
 
