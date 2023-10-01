@@ -23,12 +23,10 @@ function Footer() {
             <div className='pt-4'>
               <p className='text-lg font-bold text-white pb-2'>Useful Links</p>
               <ul>
-                <li className='font-semibold hover:text-white pb-1'><a href="">Home</a></li>
-                <li className='font-semibold hover:text-white pb-1'><a href="">Properties</a></li>
-                <li className='font-semibold hover:text-white pb-1'><a href="">Developers</a></li>
-                <li className='font-semibold hover:text-white pb-1'><a href="">Real Estate Agent</a></li>
-                <li className='font-semibold hover:text-white pb-1'><a href="">Inquire Now Form</a></li>
-                <li className='font-semibold hover:text-white pb-1'><a href="">FAQs</a></li>
+                <li className='font-semibold hover:text-white pb-1'><a href="#home">Home</a></li>
+                <li className='font-semibold hover:text-white pb-1'><a href="#properties">Properties</a></li>
+                <li className='font-semibold hover:text-white pb-1'><a href="#developers">Developers</a></li>
+                <li className='font-semibold hover:text-white pb-1'><a href="#faqs">FAQs</a></li>
               </ul>
             </div>
             <div className='pt-4'>
@@ -41,9 +39,9 @@ function Footer() {
             <div className='pt-4'>
               <p className='text-lg font-bold pb-2 text-white'>Social Media</p>
               <ul className='flex gap-6  md:lg:justify-around text-xl'>
-                <li className='hover:text-white'><a href="" target='_blank'><AiFillFacebook /></a></li>
-                <li className='hover:text-white'><a href="" target='_blank'><AiFillInstagram /></a></li>
-                <li className='hover:text-white'><a href="" target='_blank'><AiFillLinkedin /></a></li>
+                <li className='hover:text-white'><a href="https://www.facebook.com/yourkeytoyourhome" target='_blank'><AiFillFacebook /></a></li>
+                <li className='hover:text-white'><a href="https://www.instagram.com/yourkeytoyourhome/" target='_blank'><AiFillInstagram /></a></li>
+                <li className='hover:text-white'><a href="https://www.linkedin.com/in/facebookadsjiel/" target='_blank'><AiFillLinkedin /></a></li>
               </ul>
             </div>
           </div>
