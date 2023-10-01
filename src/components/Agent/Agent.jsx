@@ -18,7 +18,7 @@ function Agent() {
           <div className='absolute w-14 h-14 mt-[270px] ml-[240px] md:lg:w-14 md:lg:h-14 md:lg:mt-[310px] md:lg:ml-[245px] bg-orange-600 rounded-l-full'></div>
           </div>
           <div className='md:lg:pr-36'>
-            <p className='font-semibold text-lg px-10 md:lg:px-0 text-justify'>
+            <p className='font-semibold text-lg px-10 md:lg:pt-7 md:lg:px-0 text-justify'>
             Hi, my name is Jiel Torcuator, and I work with Winner Prime One Realty Company as your Property Finder Agent.
             I am registered with the DHUSD and a PRC-licensed salesperson. 
             We take care of numerous assets from Philippine developers come in several forms. North to South, low cost to high end, pre-selling to ready for occupancy. We have a wide range of properties,

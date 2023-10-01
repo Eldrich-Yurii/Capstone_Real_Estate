@@ -14,7 +14,7 @@ function Footer() {
 
             <div className=''>
               <div className=''>
-                <img src={Logo} alt="" className='w-24 md:lg:w-80 md:lg:mt-8'/>
+                <a href="#home"><img src={Logo} alt="" className='w-24 md:lg:w-80 md:lg:mt-8'/></a>
               </div>
             </div>
             <div className=' border-r-2'>
@@ -32,7 +32,7 @@ function Footer() {
             <div className='pt-4'>
               <p className='text-lg font-bold pb-2 text-white'>Contact Information</p>
               <ul>
-                <li className='font-semibold hover:text-white pb-1'><a href="" target='_blank'><FontAwesomeIcon icon={faPhone} className='pr-2'/>+63 9294550793</a></li>
+                <li className='font-semibold  pb-1'><FontAwesomeIcon icon={faPhone} className='pr-2'/>+63 9294550793</li>
                 <li className='font-semibold hover:text-white pb-1'><a href="mailto:jieloutorcuator@gmail.com" target='_blank'><FontAwesomeIcon icon={faEnvelope} className='pr-2'/>jieloutorcuator@gmail.com</a></li>
               </ul>
             </div>

@@ -5,7 +5,7 @@ const Form = () => {
   return (
     <>
     <h2 className='text-2xl md:lg:text-3xl font-bold text-gray-900 text-center pt-3'>INQUIRY FORM</h2>
-    <div className='py-5 flex justify-center grid-cols-6'>
+    <div id='form' className='py-5 flex justify-center grid-cols-6'>
       <form method='POST' className='bg-white rounded-xl p-6 w-full m-5 border-2 drop-shadow-2xl md:lg:w-1/2'>
         <div className='flex justify-between items-center pb-3'>
             <h2 className=' text-2xl font-bold pb-3'>Inquire Now!</h2>

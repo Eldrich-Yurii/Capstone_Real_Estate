@@ -50,7 +50,7 @@ export default function Navbar() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 px-3 py-1 drop-shadow-lg text-gray-100 bg-purple-400 rounded-bl-lg rounded-tr-lg hover:rounded-bl-none hover:rounded-tr-none hover:rounded-br-lg hover:rounded-tl-lg hover:scale-105  hover:text-gray-900 hover:bg-purple-500 hover:drop-shadow-2xl duration-500">
+            <a href="#form" className="text-sm font-semibold leading-6 px-3 py-1 drop-shadow-lg text-gray-100 bg-purple-400 rounded-bl-lg rounded-tr-lg hover:rounded-bl-none hover:rounded-tr-none hover:rounded-br-lg hover:rounded-tl-lg hover:scale-105  hover:text-gray-900 hover:bg-purple-500 hover:drop-shadow-2xl duration-500">
               Inquire Now!
             </a>
           </div>
@@ -59,7 +59,7 @@ export default function Navbar() {
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
+              <a href="#home" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 <img src={Logo} alt="" width={80}/>
               </a>
@@ -87,7 +87,7 @@ export default function Navbar() {
                 </div>
                 <div className="py-6">
                   <a
-                    href="#"
+                    href="#form"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-purple-900 hover:bg-purple-200"
                   >
                     Inquire Now!
