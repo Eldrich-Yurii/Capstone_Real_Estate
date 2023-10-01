@@ -12,7 +12,7 @@ import Bg from './img/bg.jpg'
 
 function Developers() {
   return (
-    <div className='h-[430px] md:lg:h-64 bg-slate-400 '>
+    <div id='developers' className='h-[430px] md:lg:h-64 bg-slate-400 '>
         <img src={Bg} alt="" className='absolute w-full h-[430px] md:lg:h-[255px] object-cover grayscale opacity-20'/>
             <h1 className='pt-7 text-2xl md:lg:text-3xl font-bold text-gray-950 text-center'>Developers</h1>
         <div className='grid grid-cols-4 gap-3 p-4 pb-7 w-full h-[370px] shadow-2xl md:lg:flex justify-around items-center md:lg:h-48  '>

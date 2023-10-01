@@ -3,7 +3,7 @@ import EstateAgent from './img/Agent.jpg'
 
 function Agent() {
   return (
-    <div className='h-full md:lg:px-16 pt-16 bg-zinc-100 shadow-inner'>
+    <div id='agent' className='h-full md:lg:px-16 pt-16 bg-zinc-100 shadow-inner'>
       <div>
         <h1 className='text-3xl font-bold text-center'>REAL ESTATE <span className=' text-orange-500'>AGENT</span></h1>
       </div>
@@ -14,11 +14,11 @@ function Agent() {
               <p>______</p>
               <p>______</p>
             </div>
-            <img src={EstateAgent} alt="" className='shadow-2xl w-64 rounded-t-full '/>
-          <div className='absolute w-14 h-14 mt-[270px] ml-[240px] md:lg:w-14 md:lg:h-14 md:lg:mt-[370px] md:lg:ml-[245px] bg-orange-600 rounded-l-full'></div>
+            <img src={EstateAgent} alt="" className='shadow-2xl w-64 h-96 rounded-t-full '/>
+          <div className='absolute w-14 h-14 mt-[270px] ml-[240px] md:lg:w-14 md:lg:h-14 md:lg:mt-[310px] md:lg:ml-[245px] bg-orange-600 rounded-l-full'></div>
           </div>
           <div className='md:lg:pr-36'>
-            <p className='font-semibold text-lg px-10 text-justify'>
+            <p className='font-semibold text-lg px-10 md:lg:px-0 text-justify'>
             Hi, my name is Jiel Torcuator, and I work with Winner Prime One Realty Company as your Property Finder Agent.
             I am registered with the DHUSD and a PRC-licensed salesperson. 
             We take care of numerous assets from Philippine developers come in several forms. North to South, low cost to high end, pre-selling to ready for occupancy. We have a wide range of properties,

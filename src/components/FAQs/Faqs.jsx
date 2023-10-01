@@ -3,7 +3,7 @@ import { Disclosure } from "@headlessui/react";
 export default function Accordion() {
     return (
       <>
-      <div>
+      <div id="faqs">
         <div>
             <h1 className="text-2xl md:lg:text-3xl font-bold text-center">FREQUENTLY ASKED QUESTIONS</h1>
         </div>

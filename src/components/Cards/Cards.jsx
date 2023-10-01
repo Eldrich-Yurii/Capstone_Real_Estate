@@ -7,7 +7,7 @@ import Cavite from './img/cavite.png';
 function Cards() {
   return (
     <>
-    <div>
+    <div id='properties'>
       <h1 className=' pt-10 text-2xl text-gray-900 md:lg:text-3xl font-bold text-center'>Popular Locations</h1>
       <div className='mt-8 mb-8 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12'/>
       <div className='pb-7 mx-14 md:lg:flex justify-center gap-10'>

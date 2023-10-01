@@ -6,22 +6,24 @@ import Bg from './img/bg1.jpg';
 import Logo from './img/LOGO-NAME.svg';
 
 const navigation = [
-  { name: 'Home', href: '#' },
-  { name: 'Properties', href: '#' },
-  { name: 'Developers', href: '#' },
-  { name: 'FAQs', href: '#' },
+  { name: 'Home', href: '#home' },
+  { name: 'Properties', href: '#properties' },
+  { name: 'Developers', href: '#developers' },
+  { name: 'About Agent', href: '#agent'},
+  { name: 'FAQs', href: '#faqs' },
 ]
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="">
+    <div id='home'>
       <img src={Bg} alt="" className='fixed:top brightness-75'/>
       <header className="absolute inset-x-0 top-0">
         <nav className="flex items-center justify-between px-5 pt-6 lg:px-8 " aria-label="Global">
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-3 p-1.5">
+            <a href="#home"
+             className="-m-3 p-1.5">
               <span className="sr-only">Your Company</span>
               <img src={Logo} alt="" width={60} className='drop-shadow-md hover:drop-shadow-xl md:w-16 lg:w-20'/>
             </a>
