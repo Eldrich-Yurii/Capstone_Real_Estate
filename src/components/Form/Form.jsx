@@ -11,7 +11,7 @@ const Form = () => {
             <h2 className=' text-2xl font-bold pb-3'>Inquire Now!</h2>
             <img src={Logo} alt="" width={100}/>
         </div>
-        <p>This form inquiry form help us know if you are interested to buying a property. Fill out this inquiry form to connect with us. After you enter personal and contact information we will do our best to reach you out and you in choosing or buying a Property.</p>
+        <p>This form inquiry form help us know if you are interested to buying a property. Fill out this inquiry form to connect with us. After you enter personal and contact information we will do our best to reach you out and help you in choosing or buying a Property.</p>
         <br />
         <div>
           <div className='font-semibold pb-1'>
