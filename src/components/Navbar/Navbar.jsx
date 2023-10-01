@@ -19,7 +19,7 @@ export default function Navbar() {
     <div className="">
       <img src={Bg} alt="" className='fixed:top brightness-75'/>
       <header className="absolute inset-x-0 top-0">
-        <nav className="flex items-center justify-between pt-6 lg:px-8 " aria-label="Global">
+        <nav className="flex items-center justify-between px-5 pt-6 lg:px-8 " aria-label="Global">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-3 p-1.5">
               <span className="sr-only">Your Company</span>

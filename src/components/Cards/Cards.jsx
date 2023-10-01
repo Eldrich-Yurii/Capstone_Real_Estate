@@ -8,9 +8,10 @@ function Cards() {
   return (
     <>
     <div>
-      <h1 className=' pt-7 text-2xl text-gray-900 md:lg:text-3xl font-bold text-center'>Popular Locations</h1>
-      <div className=' mx-14 md:lg:flex justify-center gap-10'>
-          <div className="w-full mt-10 ml-1 drop-shadow-2xl group duration-500 cursor-pointer group overflow-hidden relative text-gray-50 md:lg:h-72 md:lg:w-80 hover:duration-700 hover:shadow-2xl">
+      <h1 className=' pt-10 text-2xl text-gray-900 md:lg:text-3xl font-bold text-center'>Popular Locations</h1>
+      <div className='mt-8 mb-8 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12'/>
+      <div className='pb-7 mx-14 md:lg:flex justify-center gap-10'>
+          <div className="w-full mt-5 ml-1 drop-shadow-2xl group duration-500 cursor-pointer group overflow-hidden relative text-gray-50 md:lg:h-72 md:lg:w-80 hover:duration-700 hover:shadow-2xl">
             <div className="w-full bg-purple-200 text-gray-100 md:lg:h-72 md:lg:w-80">
               <img src={Bulacan} alt=""  className='absolute w-full'/>
                 
@@ -29,7 +30,7 @@ function Cards() {
                 </ul> 
             </div>  
           </div>
-          <div className="w-full mt-10 ml-1 drop-shadow-2xl group duration-500 cursor-pointer group overflow-hidden relative text-gray-50 md:lg:h-72 md:lg:w-80 hover:duration-700 hover:shadow-2xl">
+          <div className="w-full mt-5 ml-1 drop-shadow-2xl group duration-500 cursor-pointer group overflow-hidden relative text-gray-50 md:lg:h-72 md:lg:w-80 hover:duration-700 hover:shadow-2xl">
             <div className="w-full bg-purple-200 text-gray-100 md:lg:h-72 md:lg:w-80 ">
               <div className=' flex justify-center'>
               <img src={Manila} alt=""  className='absolute w-full'/>
@@ -48,7 +49,7 @@ function Cards() {
                   
             </div>  
           </div>
-          <div className="w-full mt-10 ml-1 mb-10 drop-shadow-2xl group duration-500 cursor-pointer group overflow-hidden relative text-gray-50 md:lg:h-72 md:lg:w-80 hover:duration-700 hover:shadow-2xl">
+          <div className="w-full mt-5 ml-1 mb-10 drop-shadow-2xl group duration-500 cursor-pointer group overflow-hidden relative text-gray-50 md:lg:h-72 md:lg:w-80 hover:duration-700 hover:shadow-2xl">
             <div className="w-full bg-purple-200 text-gray-100 md:lg:h-72 md:lg:w-80">
               <div className=' flex justify-center '>
               <img src={Cavite} alt=""  className='absolute w-full'/>

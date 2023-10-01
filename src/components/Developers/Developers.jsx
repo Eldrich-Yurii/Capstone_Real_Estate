@@ -12,10 +12,10 @@ import Bg from './img/bg.jpg'
 
 function Developers() {
   return (
-    <div className=' bg-slate-300'>
-        <img src={Bg} alt="" className='absolute w-full h-[255px] object-cover grayscale opacity-20'/>
-            <h1 className='pt-7 text-2xl md:lg:text-3xl font-bold text-gray-900 text-center'>Developers</h1>
-        <div className='grid grid-cols-4 gap-3 p-4 pb-7 w-full h-60 shadow-2xl md:lg:flex justify-around items-center md:lg:h-48  '>
+    <div className='h-[430px] md:lg:h-64 bg-slate-400 '>
+        <img src={Bg} alt="" className='absolute w-full h-[430px] md:lg:h-[255px] object-cover grayscale opacity-20'/>
+            <h1 className='pt-7 text-2xl md:lg:text-3xl font-bold text-gray-950 text-center'>Developers</h1>
+        <div className='grid grid-cols-4 gap-3 p-4 pb-7 w-full h-[370px] shadow-2xl md:lg:flex justify-around items-center md:lg:h-48  '>
             <div className=' drop-shadow-2xl'>
                 <img src={Apec} alt=""  className='p-2 w-24 md:lg:w-28 rounded-full hover:scale-110 duration-500'/>
                 <div className='flex justify-center pt-2'> 

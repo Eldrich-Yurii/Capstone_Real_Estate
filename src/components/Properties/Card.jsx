@@ -70,15 +70,15 @@ const Card = () => {
       infinite: false,
       speed: 800,
       slidesToShow: 4,
-      slidesToScroll: 4,
+      slidesToScroll: 1,
       initialSlide: 0,
       responsive: [
         {
           breakpoint: 1024,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
+            slidesToScroll: 1,
+            infinite: false,
             dots: true
           }
         },
@@ -86,8 +86,8 @@ const Card = () => {
           breakpoint: 600,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
+            slidesToScroll: 1,
+            initialSlide: 1
           }
         },
         {
@@ -100,38 +100,19 @@ const Card = () => {
       ]
     };
 
-    function SampleNextArrow(props) {
-      const { className, style, onClick } = props;
-      return (
-        <div
-          className={className}
-          style={{ ...style, display: "block", background: "red" }}
-          onClick={onClick}
-        />
-      );
-    }
-    
-    function SamplePrevArrow(props) {
-      const { className, style, onClick } = props;
-      return (
-        <div
-          className={className}
-          style={{ ...style, display: "block", background: "green" }}
-          onClick={onClick}
-        />
-      );
-    }
+ 
+     
 
   return (
     <>
-    <div className='pb-3 mx-auto w-11/12'>
+    <div className='pb-3 mx-auto w-10/12'>
       <Slider {...settings}  className='drop-shadow-lg'>
               {data.map ((item) => {
                 return (
                   
-                    <div className='h-72 p-2 pb-4' key={item.id}>
-                      <div className='bg-purple-200 '>
-                        <img src={item.img} alt="/" className='w-[500px] h-56 cursor-pointer hover:scale-105 ease-in-out duration-500'/>
+                    <div className=' h-60 pt-2 p-1 md:lg:h-72 md:lg:p-2 md:lg:pb-4' key={item.id}>
+                      <div className='bg-white'>
+                        <img src={item.img} alt="/" className='w-[500px] h-48 md:lg:h-56 cursor-pointer hover:scale-105 ease-in-out duration-500'/>
                           <div>
                             <h2 className='p-2 font-bold'>{item.desc}</h2>
                           </div>

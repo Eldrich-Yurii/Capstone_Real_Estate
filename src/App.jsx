@@ -22,17 +22,17 @@ function App() {
       <Navbar/>
       <Quote />
       <Properties />
-      <Bullets />
-      <div className='mt-10 mx-16 w-11/12 border-b-2 border-purple-400 rounded-xl mb-10'/>
       <Cards />
-      <div className='mt-10 mx-16 w-11/12 border-b-2 border-purple-400 rounded-xl mb-10'/>
       <Developers />
+      <div className='mt-8 mb-8 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12 md:lg:mb-10'/>
+      <Bullets />
+      <div className='mt-72  mb-5 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12'/>
       <Quote2 />
       <Step />
       <Agent />
-      <div className='mt-10 mx-16 w-11/12 border-b-2 border-purple-400 rounded-xl mb-10'/>
+      <div className='mt-10  mb-5 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12'/>
       <Form />
-      <div className='mt-10 mx-16 w-11/12 border-b-2 border-purple-400 rounded-xl mb-10'/>
+      <div className='mt-10  mb-5 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12'/>
       <Faqs />
       <Footer />
 
