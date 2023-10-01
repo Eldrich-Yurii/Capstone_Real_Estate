@@ -5,7 +5,7 @@ const Form = () => {
   return (
     <>
     <h2 className='text-2xl md:lg:text-3xl font-bold text-gray-900 text-center pt-3'>INQUIRY FORM</h2>
-    <div id='form' className='py-5 flex justify-center grid-cols-6'>
+    <div id='form' className='py-5 flex justify-center '>
       <form method='POST' className='bg-white rounded-xl p-6 w-full m-5 border-2 drop-shadow-2xl md:lg:w-1/2'>
         <div className='flex justify-between items-center pb-3'>
             <h2 className=' text-2xl font-bold pb-3'>Inquire Now!</h2>
@@ -28,7 +28,7 @@ const Form = () => {
             />  
           </div>
         </div>
-        <div className=' grid grid-cols-2 pt-1 gap-4'>
+        <div className=' grid md:lg:grid-cols-2 md:lg:pt-1 md:lg:gap-4'>
           <div className='pt-3 pb-1'>
               <label htmlFor="age" className='font-semibold'>Age</label>
           <div className='pt-1'>
@@ -72,7 +72,7 @@ const Form = () => {
             </div>
         </div>
         <hr />
-        <div className=' grid grid-cols-2 pt-1 gap-4'>
+        <div className=' grid md:lg:grid-cols-2 md:lg:pt-1 md:lg:gap-4'>
           <div className='pt-3 pb-1'>
               <label htmlFor="location" className='font-semibold'>Location of Property</label>
           <div className='pt-1'>
@@ -104,11 +104,11 @@ const Form = () => {
           </div>  
           </div>
         </div>
-        <div className='pt-4'>
+        <div className='pt-3 flex justify-end'>
           <button 
           type="submit"
           id='FormSubmit'
-          className='bg-purple-700 rounded-lg w-full mt-2 py-2 text-white hover:bg-purple-900 duration-500'>
+          className='bg-purple-700 rounded-lg w-1/3 mt-2 py-2 text-white hover:bg-purple-900 hover:-shadow-lg ease-in-out duration-500'>
             Submit
           </button>
         </div>
