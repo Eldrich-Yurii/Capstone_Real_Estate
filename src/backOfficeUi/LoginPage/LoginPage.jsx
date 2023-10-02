@@ -1,11 +1,12 @@
 import React from 'react'
+import Logo from './img/LOGO-NAME.svg'
 
 const LoginPage = () => {
   return (
     <>
       <div>
         <div>
-            <img src="" alt="" />
+            <img src={Logo} alt="" />
         </div>
         <form action="" method="POST">
             <div>
