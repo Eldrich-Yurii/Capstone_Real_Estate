@@ -13,13 +13,14 @@ import Properties from './components/Properties/Properties';
 import Form from './components/Form/Form';
 import Faqs from './components/Faqs/Faqs'
 import Footer from './components/Footer/Footer';
+import AdminPage from './backOfficeUi/Admin/AdminPage';
 import './App.css'
 
 function App() {
  
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/>
       <Quote />
       <Properties />
       <Cards />
@@ -34,8 +35,8 @@ function App() {
       <Form />
       <div className='mt-10  mb-5 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12'/>
       <Faqs />
-      <Footer />
-
+      <Footer /> */}
+      <AdminPage />
     </>
   )
 }
