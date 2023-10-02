@@ -1,90 +1,104 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import Search from '../Search/Search';
+import Bg from './img/bg1.jpg';
+import Logo from './img/LOGO-NAME.svg';
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Properties', href: '#', current: false },
-  { name: 'About Agent', href: '#', current: false },
+  { name: 'Home', href: '#home' },
+  { name: 'Properties', href: '#properties' },
+  { name: 'Developers', href: '#developers' },
+  { name: 'About Agent', href: '#agent'},
+  { name: 'FAQs', href: '#faqs' },
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 export default function Navbar() {
-  return (
-    <Disclosure as="nav" className="bg-gray-800">
-      {({ open }) => (
-        <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <h2 className='bg-white'>LOGO</h2>
-                </div>
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="relative rounded-full p-1 px-2 border-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >Inquire Now!
-                  
-                </button>
-              </div>
-            </div>
-          </div>
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
+  return (
+    <div id='home'>
+      <img src={Bg} alt="" className='fixed:top brightness-75'/>
+      <header className="absolute inset-x-0 top-0">
+        <nav className="flex items-center justify-between px-5 pt-6 lg:px-8 " aria-label="Global">
+          <div className="flex lg:flex-1">
+            <a href="#home"
+             className="-m-3 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <img src={Logo} alt="" width={60} className='drop-shadow-md hover:drop-shadow-xl md:w-16 lg:w-20'/>
+            </a>
+          </div>
+          {/* Mobile menu button */}
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="h-6 w-6 stroke-black" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-12">
+            {navigation.map((item) => (
+              <a 
+                key={item.name}
+                href={item.href} 
+                className=" py-1 px-3 text-md font-semibold hover:scale-105 rounded-bl-lg rounded-tr-lg drop-shadow-lg hover:bg-purple-400 hover:drop-shadow-2xl hover:text-gray-100 duration-500 ease-in-out">
                   {item.name}
-                </Disclosure.Button>
-              ))}
+              </a>
+            ))}
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="#form" className="text-sm font-semibold leading-6 px-3 py-1 drop-shadow-lg text-gray-100 bg-purple-400 rounded-bl-lg rounded-tr-lg hover:rounded-bl-none hover:rounded-tr-none hover:rounded-br-lg hover:rounded-tl-lg hover:scale-105  hover:text-gray-900 hover:bg-purple-500 hover:drop-shadow-2xl duration-500">
+              Inquire Now!
+            </a>
+          </div>
+        </nav>
+        <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+          <div className="fixed inset-0 z-50" />
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="flex items-center justify-between">
+              <a href="#home" className="-m-1.5 p-1.5">
+                <span className="sr-only">Your Company</span>
+                <img src={Logo} alt="" width={80}/>
+              </a>
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
             </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-purple-700">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-purple-900 hover:bg-purple-200"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+                <div className="py-6">
+                  <a
+                    href="#form"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-purple-900 hover:bg-purple-200"
+                  >
+                    Inquire Now!
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Dialog.Panel>
+        </Dialog>
+      </header>
+          <Search />
+    </div>
   )
 }
