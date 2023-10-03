@@ -32,9 +32,9 @@ const AdminPage = () => {
               <ListItem className="p-0" selected={open === 1}>
                 <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
                   <ListItemPrefix>
-                    <PresentationChartBarIcon className="h-5 w-5" />
+                    <PresentationChartBarIcon className="h-5 w-5 text-purple-500" />
                   </ListItemPrefix>
-                  <Typography  className="mr-auto font-normal">
+                  <Typography className="mr-auto font-normal">
                     List Of Inquiries
                   </Typography>
                 </AccordionHeader>
@@ -44,7 +44,7 @@ const AdminPage = () => {
                     {/* Main Leads */}
                     <ListItem>
                       <ListItemPrefix>
-                        <SiSpond strokeWidth={5} className="h-3 w-5" />
+                        <SiSpond className="h-5 w-5 text-purple-500" />
                       </ListItemPrefix>
                       Lead Pond
                     </ListItem>
@@ -53,7 +53,7 @@ const AdminPage = () => {
                     {/* Potential Buyers/Undecided */}
                     <ListItem>
                       <ListItemPrefix>
-                        <BsFillPersonPlusFill strokeWidth={5} className="h-3 w-5" />
+                        <BsFillPersonPlusFill className="h-5 w-5 text-purple-500" />
                       </ListItemPrefix>
                       Potential Client
                     </ListItem>
@@ -61,13 +61,13 @@ const AdminPage = () => {
                     {/* Scheduled for tripping */}
                     <ListItem>
                       <ListItemPrefix>
-                        <BiTrip strokeWidth={5} className="h-3 w-5" />
+                        <BiTrip className="h-5 w-5 text-purple-500" />
                       </ListItemPrefix>
                       Occular/Site Visit
                     </ListItem>
                     <ListItem>
                       <ListItemPrefix>
-                        <FaFileContract strokeWidth={5} className="h-3 w-5" />
+                        <FaFileContract className="h-5 w-5 text-purple-500" />
                       </ListItemPrefix>
                     Contract Signing
                     </ListItem>
@@ -75,7 +75,7 @@ const AdminPage = () => {
                     {/* Complete Requirements/Waiting for Turnover */}
                     <ListItem>
                       <ListItemPrefix>
-                        <BsGraphUpArrow strokeWidth={5} className="h-3 w-5" />
+                        <BsGraphUpArrow className="h-5 w-5 text-purple-500" />
                       </ListItemPrefix>
                       Turnover
                     </ListItem>
@@ -86,7 +86,7 @@ const AdminPage = () => {
               {/* List Of Properties CRUD  */}
                   <ListItem>
               <ListItemPrefix>
-                <PiBuildingsFill className="h-5 w-5" />
+                <PiBuildingsFill className="h-5 w-5 text-purple-500" />
               </ListItemPrefix>
               Real Estate Management
               <ListItemSuffix>
@@ -95,7 +95,7 @@ const AdminPage = () => {
             {/* Management of Account of the Admin */}
             <ListItem>
               <ListItemPrefix>
-                <Cog6ToothIcon className="h-5 w-5" />
+                <Cog6ToothIcon className="h-5 w-5 text-purple-500" />
               </ListItemPrefix>
               Accounts Manager
             </ListItem>
@@ -105,7 +105,7 @@ const AdminPage = () => {
             {/* Log out */}
             <ListItem>
               <ListItemPrefix>
-                <PowerIcon className="h-5 w-5" />
+                <PowerIcon className="h-5 w-5 text-red-700" />
               </ListItemPrefix>
               Log Out
             </ListItem>
