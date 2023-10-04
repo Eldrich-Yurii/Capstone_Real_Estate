@@ -6,7 +6,7 @@ import Pic from './img/Logo.png';
 
 const RealEstateManagement = () => {
 
-  const TABLE_HEAD = ["Property", "Name", "Sqm", "Location", "Price", "Required income", ""];
+  const TABLE_HEAD = ["Property", "Name", "Sqm", "Location", "Price", "Required income", "", ""];
  
 const TABLE_ROWS = [
   {
@@ -61,9 +61,23 @@ const TABLE_ROWS = [
 
   return (
     <>
-    <div className='absolute ml-[345px] -mt-[570px] flex justify-end'>
-        <div className='absolute -mt-5 bg-purple-800 p-2 px-4 text-white rounded-lg '>
-          <Link to="/RealEstateManagement/1">Add Properties</Link>
+    
+    <div className='absolute ml-[345px] -mt-[560px]'>
+        <div className='absolute -mt-10 bg-white  border-[1px] w-full h-16 p-2 px-4 text-white rounded-full drop-shadow-md '>
+          <div className='flex justify-between items-center h-full pl-3 '>
+              <h2 className='text-purple-900 text-xl'>Property Manager</h2>
+              <div className='pl-64'>
+                <input 
+                type="search" 
+                name="searchproperty" 
+                id="searchproperty" 
+                placeholder='Search' 
+                className='bg-gray-100 shadow-inner px-4 w-64 h-10 p-2 rounded-full text-black'/>
+              </div>
+              <div className='bg-purple-600 text-white p-2 px-3 rounded-full hover:bg-deep-purple-500 hover:scale-105 duration-150 ease-in-out'>
+                <Link to="">Add Property</Link>
+              </div>
+          </div>
         </div>
         <div className='pt-10'>
             <Card className="h-[500px] w-[1000px] overflow-scroll">
@@ -118,6 +132,11 @@ const TABLE_ROWS = [
                     <td className="p-4">
                       <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
                         Edit
+                      </Typography>
+                    </td>
+                    <td className="p-4">
+                      <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                        Delete
                       </Typography>
                     </td>
                   </tr>

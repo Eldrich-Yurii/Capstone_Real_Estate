@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, AccordionHeader, AccordionBody,
+import { List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, AccordionHeader, AccordionBody,
 } from "@material-tailwind/react";
 import { PresentationChartBarIcon, Cog6ToothIcon, InboxIcon, PowerIcon, } from "@heroicons/react/24/solid";
 import { PiBuildingsFill } from 'react-icons/pi'
@@ -11,7 +11,7 @@ const AdminPage = () => {
 
   return (
     <>
-      <div id="admin" className="h-screen bg-gray-50">
+      <div className="bg-gray-300">
           <aside className=" h-screen w-full max-w-[20rem] p-4 bg-white shadow-2xl  ">
             <div className="mb-2 p-4">
               <img src={Logo} alt="" width={100} />
@@ -20,7 +20,7 @@ const AdminPage = () => {
               {/* List Of Client CRUD  */}
                 <ListItem>
                   <ListItemPrefix>
-                    <PiBuildingsFill className="h-5 w-5 text-purple-500" />
+                    <PresentationChartBarIcon className="h-5 w-5 text-purple-500" />
                   </ListItemPrefix>
                     <Link to="/admin-dashboard">Clients Pond</Link>
                 </ListItem> 

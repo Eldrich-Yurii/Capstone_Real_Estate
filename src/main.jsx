@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 import LoginPage from './backOfficeUi/LoginPage/LoginPage';
-import AdminPage from './backOfficeUi/Admin/AdminPage.jsx';
 import ClientsTable from './backOfficeUi/Admin/ClientsTable/ClientsTable';
 import PropertyManager from './backOfficeUi/Admin/PropertyManager/PropertyManager';
 import AccountsManager from './backOfficeUi/Admin/AccountsManager/AccountsManager'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import AdminPage from './backOfficeUi/Admin/AdminPage';
 
 const router = createBrowserRouter([
 
