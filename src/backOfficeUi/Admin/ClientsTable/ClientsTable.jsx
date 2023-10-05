@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaPlus, FaBell } from "react-icons/fa"
+import { FaPlus, FaBell, FaEdit } from "react-icons/fa"
 import { Card, Typography, Badge, IconButton } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
 
@@ -74,8 +74,8 @@ const TABLE_ROWS = [
 
   return (
     <>
-    <div className='absolute ml-[345px] -mt-[480px]'>
-    <div className='absolute -mt-24 bg-white  border-[1px] w-full h-16 p-2 px-4 text-white rounded-full drop-shadow-md '>
+    <div className='absolute ml-[345px] -mt-[520px]'>
+    <div className='absolute -mt-20 bg-white  border-[1px] w-full h-16 p-2 px-4 text-white rounded-full drop-shadow-md '>
           <div className='flex justify-between items-center h-full pl-3 '>
               <h2 className='text-purple-900 text-xl'>Clients Pond</h2>
               <div className='pl-96'>
@@ -83,11 +83,11 @@ const TABLE_ROWS = [
                 type="search" 
                 name="searchproperty" 
                 id="searchproperty" 
-                placeholder='Search' 
+                placeholder='Search...' 
                 className='bg-gray-100 shadow-inner px-4 w-64 h-10 p-2 rounded-full text-black'/>
               </div>
               <div className='bg-purple-500 text-white p-2 px-4 rounded-full hover:scale-105 duration-150 ease-in-out'>
-                <Link to="" className='flex items-center gap-2'>Add Client<span><FaPlus /></span></Link >
+                <Link to="" className='flex items-center gap-2'>Add Client<FaPlus /></Link >
               </div>
                 <Badge>
                   <IconButton className='rounded-full bg-purple-500 hover:scale-105 duration-150 ease-in-out'>
@@ -96,12 +96,12 @@ const TABLE_ROWS = [
                 </Badge>
           </div>
         </div>
-        <Card className="h-[450px] w-[1000px] overflow-scroll">
-        <table className=" w-full min-w-max table-auto text-left">
+        <Card className="h-[500px] w-[1000px] overflow-scroll rounded-3xl">
+        <table className=" w-full min-w-max table-auto text-center">
           <thead>
             <tr>
               {TABLE_HEAD.map((head) => (
-                <th key={head} className="border-b border-blue-gray-100 px-3 py-4">
+                <th key={head} className="border-b border-blue-gray-100 px-4 py-4">
                   <Typography
                     variant="small"
                     color="blue-gray"
@@ -116,45 +116,45 @@ const TABLE_ROWS = [
           <tbody>
             {TABLE_ROWS.map(({id, fullname, age, contactNumber, email, locationOfProperty, monthlySalary, tags }, index) => (
               <tr key={id} className="even:bg-blue-gray-100/50">
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">
                   <Typography variant="small" color="blue-gray" className="font-normal">
                     {fullname}
                   </Typography>
                 </td>
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">
                   <Typography variant="small" color="blue-gray" className="font-normal">
                     {age}
                   </Typography>
                 </td>
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">
                   <Typography variant="small" color="blue-gray" className="font-normal">
                     {contactNumber}
                   </Typography>
                 </td>
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">
                   <Typography variant="small" color="blue-gray" className="font-normal">
                     {email}
                   </Typography>
                 </td>
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">
                   <Typography variant="small" color="blue-gray" className="font-normal">
                     {locationOfProperty}
                   </Typography>
                 </td>
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">
                   <Typography variant="small" color="blue-gray" className="font-normal">
                     {monthlySalary}
                   </Typography>
                 </td>
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">
                   <Typography variant="small" color="blue-gray" className="font-normal">
                     {tags}
                   </Typography>
                 </td>
               
-                <td className="px-3 py-4">
+                <td className="px-4 py-4">
                   <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
-                    Edit
+                  <FaEdit  className='text-xl text-green-500'/>
                   </Typography>
                 </td>
               </tr>
