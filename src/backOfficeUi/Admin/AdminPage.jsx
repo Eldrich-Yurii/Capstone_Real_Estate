@@ -3,6 +3,7 @@ import { List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, Accord
 } from "@material-tailwind/react";
 import { PresentationChartBarIcon, Cog6ToothIcon, InboxIcon, PowerIcon, } from "@heroicons/react/24/solid";
 import { PiBuildingsFill } from 'react-icons/pi'
+import { FaThList, FaImages } from 'react-icons/fa'
 import Logo from './img/LOGO-NAME.svg'
 import { Link, Outlet } from "react-router-dom";
 
@@ -22,8 +23,16 @@ const AdminPage = () => {
                   <ListItemPrefix>
                     <PresentationChartBarIcon className="h-5 w-5 text-purple-500" />
                   </ListItemPrefix>
-                    <Link to="/admin-dashboard">Clients Pond</Link>
+                    <Link to="/admin-dashboard">Admin Dashboard</Link>
                 </ListItem> 
+              {/* List Of Client CRUD  */}
+                <ListItem>
+                  <ListItemPrefix>
+                    <FaThList className="h-5 w-5 text-purple-500" />
+                  </ListItemPrefix>
+                    <Link to="/admin-dashboard/clients-table">Clients Pond</Link>
+                </ListItem> 
+                
               {/* List Of Properties CRUD  */}
                 <ListItem>
                   <ListItemPrefix>
@@ -31,6 +40,15 @@ const AdminPage = () => {
                   </ListItemPrefix>
                     <Link to="/admin-dashboard/property-manager">Real Estate Management</Link>
                 </ListItem>
+
+              {/* List Of Properties CRUD  */}
+                <ListItem>
+                  <ListItemPrefix>
+                    <FaImages className="h-5 w-5 text-purple-500" />
+                  </ListItemPrefix>
+                    <Link to="/admin-dashboard/property-images">Property Images</Link>
+                </ListItem>
+
               {/* Management of Account of the Admin */}
               <ListItem>
                 <ListItemPrefix>

@@ -1,76 +1,80 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useState, useRef } from 'react';
 import { FaPlus, FaEdit } from "react-icons/fa"
 import { AiFillDelete } from "react-icons/ai"
-import { Card, Typography } from "@material-tailwind/react";
+import { Button, Card, Typography } from "@material-tailwind/react";
 import Pic from './img/Logo.png';
-import Pica from './img/LOGO-NAME.svg'
+import CreateProperty from './CreateProperty';
 
 
 const RealEstateManagement = () => {
 
-  const TABLE_HEAD = ["Property", "Name", "Sqm", "Location", "Price", "Required income", "", ""];
+  const [openModal, setOpenModal] = useState(false)
+
+  const cancelButtonRef = useRef(null)
+
+  const TABLE_HEAD = ["Property_ID", "Name", "Sqm", "Price", "City", "Province", "Required income (Php)", "", ""];
  
 const TABLE_ROWS = [
   {
     id : "1" ,
-    img: Pic,
-    // ima : Pica,
+    // img: Pic,
     name: "Pagsibol",
     sqm: "32 sqm",
-    location: "Sta. Maria Bulacan",
+    city: "Sta. Maria",
+    province: "Bulacan",
     price:"1 million",
-    requiredincome : "30, 000 php"
+    requiredincome : "30, 000"
   },
   {
     id : "2" ,
-    img: Pic,
-    // ima : Pica,
+    // img: Pic,
     name: "Pagsibol",
     sqm: "32 sqm",
-    location: "Sta. Maria Bulacan",
+    city: "Sta. Maria",
+    province: "Bulacan",
     price:"1 million",
-    requiredincome : "30, 000 php"
+    requiredincome : "30, 000"
   },
   {
     id : "3" ,
-    img: Pic,
-    // ima : Pica,
+    // img: Pic,
     name: "Pagsibol",
     sqm: "32 sqm",
-    location: "Sta. Maria Bulacan",
+    city: "Sta. Maria",
+    province: "Bulacan",
     price:"1 million",
-    requiredincome : "30, 000 php"
+    requiredincome : "30, 000"
   },
   {
     id : "4" ,
-    img: Pic,
-    // ima : Pica,
+    // img: Pic,
     name: "Pagsibol",
     sqm: "32 sqm",
-    location: "Sta. Maria Bulacan",
+    city: "Sta. Maria",
+    province: "Bulacan",
     price:"1 million",
-    requiredincome : "30, 000 php"
+    requiredincome : "30, 000"
   },
   {
     id : "5" ,
-    img: Pic,
-    // ima : Pica,
+    // img: Pic,
     name: "Pagsibol",
     sqm: "32 sqm",
-    location: "Sta. Maria Bulacan",
+    city: "Sta. Maria",
+    province: "Bulacan",
     price:"1 million",
-    requiredincome : "30, 000 php"
+    requiredincome : "30, 000"
   },
   {
     id : "6" ,
-    img: Pic,
-    // ima : Pica,
+    // img: Pic,
     name: "Pagsibol",
     sqm: "32 sqm",
-    location: "Sta. Maria Bulacan",
+    city: "Sta. Maria",
+    province: "Bulacan",
     price:"1 million",
-    requiredincome : "30, 000 php"
+    requiredincome : "30, 000"
   },
 ];
 
@@ -89,13 +93,14 @@ const TABLE_ROWS = [
                 placeholder='Search...' 
                 className='bg-gray-100 shadow-inner px-4 w-64 h-10 p-2 rounded-full text-black'/>
               </div>
-              <div className='bg-purple-500 text-white p-2 px-4 rounded-full hover:scale-105 duration-150 ease-in-out'>
-                <Link to="" className='flex items-center gap-2'>Add Property<FaPlus /></Link>
+              <div className='bg-purple-700 text-white p-2 px-4 rounded-full hover:scale-105 duration-150 ease-in-out'>
+                <button type='button' onClick={() => setOpenModal(true)} className='flex items-center gap-2'>Add Property<FaPlus /></button>
+                <CreateProperty open={openModal} onClose={() => setOpenModal(false)}/>
               </div>
           </div>
         </div>
         <div className='pt-10'>
-            <Card className="h-[500px] w-[1000px] overflow-scroll rounded-3xl">
+            <Card className="h-[420px] w-[1000px] rounded-3xl">
             <table className="w-full min-w-max table-auto text-center">
               <thead>
                 <tr>
@@ -113,10 +118,13 @@ const TABLE_ROWS = [
                 </tr>
               </thead>
               <tbody>
-                {TABLE_ROWS.map(({id, img, name, sqm, location, price, requiredincome}, index) => (
+                {TABLE_ROWS.map(({id, img, name, sqm, city, province, price, requiredincome}, index) => (
                   <tr key={id} className="even:bg-blue-gray-100/50">
                     <td className="p-4">
-                    <img src={img} alt="" width={100}/>
+                    <Typography variant="small" color="blue-gray" className="font-normal">
+                        {id}
+                      </Typography>
+                    {/* <img src={img} alt="" width={100}/> */}
                     </td>
                     {/* <td className="p-4">
                     <img src={ima} alt="" width={100}/>
@@ -133,12 +141,17 @@ const TABLE_ROWS = [
                     </td>
                     <td className="p-4">
                       <Typography variant="small" color="blue-gray" className="font-normal">
-                        {location}
+                        {price}
                       </Typography>
                     </td>
                     <td className="p-4">
                       <Typography variant="small" color="blue-gray" className="font-normal">
-                        {price}
+                        {city}
+                      </Typography>
+                    </td>
+                    <td className="p-4">
+                      <Typography variant="small" color="blue-gray" className="font-normal">
+                        {province}
                       </Typography>
                     </td>
                     <td className="p-4">

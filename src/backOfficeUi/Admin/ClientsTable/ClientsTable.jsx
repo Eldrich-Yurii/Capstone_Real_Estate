@@ -2,71 +2,88 @@ import React from 'react'
 import { FaPlus, FaBell, FaEdit } from "react-icons/fa"
 import { Card, Typography, Badge, IconButton } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import CreateClient from './CreateClient';
+
 
 
 const LeadPondUi = () => {
 
-  const TABLE_HEAD = ["Full Name", "Age", "Contact Number", "Email", "Location Of Property", " Monthly Salary", "Tags", ""];
+  const [openModal, setOpenModal] = useState(false)
+
+  const TABLE_HEAD = ["First Name", "Last Name", "Birth Date", "Contact Number", "Email", "City", "Province", " Monthly Salary (Php)", "Tags", ""];
  
 const TABLE_ROWS = [
   {
     id: "1",
-    fullname: "John Michael",
-    age: "30",
+    firstname: "John",
+    lastname: "Michael",
+    birthdate: "October 22, 2002",
     contactNumber: "0911222831212",
     email: "kapitanTiago@gmail.com",
-    locationOfProperty:"Sta. Maria Bulacan",
-    monthlySalary : "25, 000 php",
+    city:"Sta. Maria",
+    province:"Bulacan",
+    monthlySalary : "25, 000",
     tags: "Potential"
   },
   {
     id: "2",
-    fullname: "John Michael",
-    age: "30",
+    firstname: "John",
+    lastname: "Michael",
+    birthdate: "October 22, 2002",
     contactNumber: "0911222831212",
     email: "kapitanTiago@gmail.com",
-    locationOfProperty:"Sta. Maria Bulacan",
-    monthlySalary : "25, 000 php",
+    city:"Sta. Maria",
+    province:"Bulacan",
+    monthlySalary : "25, 000",
     tags: "Site Visit"
   },
   {
     id: "3",
-    fullname: "John Michael",
-    age: "30",
+    firstname: "John",
+    lastname: "Michael",
+    birthdate: "October 22, 2002",
     contactNumber: "0911222831212",
     email: "kapitanTiago@gmail.com",
-    locationOfProperty:"Sta. Maria Bulacan",
-    monthlySalary : "25, 000 php",
+    city:"Sta. Maria",
+    province:"Bulacan",
+    monthlySalary : "25, 000",
     tags: "Site Visit"
   },
   {
     id: "4",
-    fullname: "John Cruz",
-    age: "30",
+    firstname: "Johnz",
+    lastname: "Cruz",
+    birthdate: "October 22, 2002",
     contactNumber: "0911222831212",
     email: "kapitanTiago@gmail.com",
-    locationOfProperty:"Sta. Maria Bulacan",
-    monthlySalary : "25, 000 php",
+    city:"Sta. Maria",
+    province:"Bulacan",
+    monthlySalary : "25, 000",
     tags: "Turonver"
   },
   {
     id: "5",
-    fullname: "John De Guzman ",
-    age: "30",
+    firstname: "John ",
+    lastname: "De Guzman ",
+    birthdate: "October 22, 2002",
     contactNumber: "0911222831212",
     email: "kapitanTiago@gmail.com",
-    locationOfProperty:"Sta. Maria Bulacan",
-    monthlySalary : "25, 000 php",
+    city:"Sta. Maria",
+    province:"Bulacan",
+    monthlySalary : "25, 000",
     tags: "Site Visit"
   },
   {
     id: "6",
-    fullname: "John Mark",
-    age: "30",
+    firstname: "John",
+    lastname: "John Marquez",
+    birthdate: "October 22, 2002",
     contactNumber: "0911222831212",
     email: "kapitanTiago@gmail.com",
-    locationOfProperty:"Sta. Maria Bulacan",
-    monthlySalary : "25, 000 php",
+    city:"Sta. Maria",
+    province:"Bulacan",
+    monthlySalary : "25, 000",
     tags: "Site Visit"
   },
   
@@ -86,8 +103,9 @@ const TABLE_ROWS = [
                 placeholder='Search...' 
                 className='bg-gray-100 shadow-inner px-4 w-64 h-10 p-2 rounded-full text-black'/>
               </div>
-              <div className='bg-purple-500 text-white p-2 px-4 rounded-full hover:scale-105 duration-150 ease-in-out'>
-                <Link to="" className='flex items-center gap-2'>Add Client<FaPlus /></Link >
+              <div className='bg-purple-700 text-white p-2 px-4 rounded-full hover:scale-105 duration-150 ease-in-out'>
+                <button onClick={() => setOpenModal(true)} className='flex items-center gap-2'>Add Client<FaPlus /></button >
+                <CreateClient open={openModal} onClose={() => setOpenModal(false)}/>
               </div>
                 <Badge>
                   <IconButton className='rounded-full bg-purple-500 hover:scale-105 duration-150 ease-in-out'>
@@ -96,7 +114,7 @@ const TABLE_ROWS = [
                 </Badge>
           </div>
         </div>
-        <Card className="h-[500px] w-[1000px] overflow-scroll rounded-3xl">
+        <Card className="h-[420px] w-[1000px] overflow-x-scroll rounded-3xl">
         <table className=" w-full min-w-max table-auto text-center">
           <thead>
             <tr>
@@ -114,16 +132,21 @@ const TABLE_ROWS = [
             </tr>
           </thead>
           <tbody>
-            {TABLE_ROWS.map(({id, fullname, age, contactNumber, email, locationOfProperty, monthlySalary, tags }, index) => (
+            {TABLE_ROWS.map(({id, firstname, lastname, birthdate, contactNumber, email, city, province, monthlySalary, tags }, index) => (
               <tr key={id} className="even:bg-blue-gray-100/50">
                 <td className="px-4 py-4">
                   <Typography variant="small" color="blue-gray" className="font-normal">
-                    {fullname}
+                    {firstname}
                   </Typography>
                 </td>
                 <td className="px-4 py-4">
                   <Typography variant="small" color="blue-gray" className="font-normal">
-                    {age}
+                    {lastname}
+                  </Typography>
+                </td>
+                <td className="px-4 py-4">
+                  <Typography variant="small" color="blue-gray" className="font-normal">
+                    {birthdate}
                   </Typography>
                 </td>
                 <td className="px-4 py-4">
@@ -138,7 +161,12 @@ const TABLE_ROWS = [
                 </td>
                 <td className="px-4 py-4">
                   <Typography variant="small" color="blue-gray" className="font-normal">
-                    {locationOfProperty}
+                    {city}
+                  </Typography>
+                </td>
+                <td className="px-4 py-4">
+                  <Typography variant="small" color="blue-gray" className="font-normal">
+                    {province}
                   </Typography>
                 </td>
                 <td className="px-4 py-4">

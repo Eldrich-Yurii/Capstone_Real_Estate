@@ -1,23 +1,22 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { AiFillCloseCircle } from 'react-icons/ai'
 
-function CreateProperty() {
-    const { id } = useParams()
+
+
+function CreateProperty({open, onClose}) {
+  if (!open) 
+  return null;
+  const [openModal, setOpenModal] = useState(true)
+
   return (
     <>
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-        </Transition.Child>
+     <Transition.Root show={open} as={Fragment}>
+      <Dialog as="div" className="relative z-10"  onClose={setOpenModal}>
+        
+          <div className="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity" />
+     
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
@@ -30,86 +29,159 @@ function CreateProperty() {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                  <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <ExclamationTriangleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
-                    </div>
-                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                      <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                        Deactivate account
-                      </Dialog.Title>
+              <div className="relative transform overflow-hidden rounded-xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div className="bg-white py-3">
+                  <div className="">
+                   
+                    <div className="mt-2 ml-4 md:lg:text-left">
+                      <div className='flex justify-between'>
+                        <h2 className="text-lg font-semibold leading-6 text-white bg-purple-700 p-2 px-7 -ml-6 rounded-r-full">
+                          Add Property Information
+                        </h2>
+                        <button><AiFillCloseCircle onClick={onClose} className='pr-3 text-4xl -mt-7 text-gray-500 hover:scale-105 hover:text-red-500'/></button>
+                      </div>
+                      
                       <div className="mt-2">
-                        <p className="text-sm text-gray-500">
-                          Are you sure you want to deactivate your account? All of your data will be permanently
-                          removed. This action cannot be undone.
-                        </p>
+                        <form action="" method="post" className=' p-1 pr-5'>
+                          <div>
+                            {/* Property */}
+                            <div className='pb-3'>
+                              <label htmlFor="property" className='text-md font-semibold pl-2'>Property</label>
+                            </div>
+                            <div className='pb-3'>
+                              <input 
+                              type="file" 
+                              name="property" 
+                              id="property" 
+                              className=' bg-gray-300 w-full rounded-r-full'/>
+                            </div>
+                          </div>
+                          <div className='grid grid-cols-2 gap-3'>
+                            <div className='pb-2'>
+                              {/* Name */}
+                              <div className='pb-2'>
+                                <label htmlFor="name" className='text-md font-semibold pl-2'>Name</label>
+                              </div>
+                              <div>
+                                <input 
+                                type="text" 
+                                name="name" 
+                                id="name" 
+                                placeholder='Name of Property'
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
+                              </div>
+                            </div>
+                            <div className='pb-2'>
+                              {/* Developer */}
+                              <div className='pb-2'>
+                                <label htmlFor="developer" className='text-md font-semibold pl-2'>Developer</label>
+                              </div>
+                              <div>
+                                <input 
+                                type="text" 
+                                name="developer" 
+                                id="developer"
+                                placeholder='Property Developer'
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
+                              </div>
+                            </div>
+                          </div>
+                          <div className='grid grid-cols-2 gap-3'>
+                            <div className='pb-2'>
+                              {/* Square meters */}
+                              <div className='pb-2'>
+                                <label htmlFor="sqm" className='text-md font-semibold pl-2'>Square meters</label>
+                              </div>
+                              <div>
+                                <input 
+                                type="text" 
+                                name="sqm" 
+                                id="sqm" 
+                                placeholder='Ex. 32 sqm'
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
+                              </div>
+                            </div>
+                            <div className='pb-2'>
+                              {/* Price */}
+                              <div className='pb-2'>
+                                <label htmlFor="price" className='text-md font-semibold pl-2'>Price</label>
+                              </div>
+                              <div>
+                                <input 
+                                type="text" 
+                                name="price" 
+                                id="price" 
+                                placeholder='Ex. Php 1,000,000'
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
+                              </div>
+                            </div>
+                          </div>
+                          <div className='grid grid-cols-2 gap-3'>
+                            <div className='pb-2'>
+                              {/* City of Property */}
+                              <div className='pb-2'>
+                                <label htmlFor="city" className='text-md font-semibold pl-2'>City</label>
+                              </div>
+                              <div>
+                                <input 
+                                type="text" 
+                                name="city" 
+                                id="city" 
+                                placeholder='Ex. Santa Maria'
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
+                              </div>
+                            </div>
+                            <div className='pb-2'>
+                              {/* Province */}
+                              <div className='pb-2'>
+                                <label htmlFor="province" className='text-md font-semibold pl-2'>Province</label>
+                              </div>
+                              <div>
+                                <input 
+                                type="text" 
+                                name="province" 
+                                id="province"
+                                placeholder='Ex. Bulacan'
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          
+                          <div className='pb-2'>
+                            {/* Required Income */}
+                            <div className='pb-2'>
+                              <label htmlFor="requiredIncome" className='text-md font-semibold pl-2'>Required Income</label>
+                            </div>
+                            <div>
+                              <input 
+                              type="text" 
+                              name="requiredIncome" 
+                              id="requiredIncome" 
+                              placeholder='Ex. Php 30, 000'
+                              className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
+                            </div>
+                          </div>
+                           <div className='pt-4 pb-1 flex justify-end gap-8'>
+                              <div className='bg-gray-300 py-2 px-4 rounded-full hover:bg-gray-400 hover:text-white'>
+                                <button type="reset" onClick={onClose}>Cancel</button>
+                              </div>
+                              <div className='text-white bg-purple-700 py-2 px-4 rounded-full hover:bg-purple-900'>
+                                <button type="submit">Add Property</button>
+                              </div>
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                  <button
-                    type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                    onClick={() => setOpen(false)}
-                  >
-                    Deactivate
-                  </button>
-                  <button
-                    type="button"
-                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    onClick={() => setOpen(false)}
-                    ref={cancelButtonRef}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </Dialog.Panel>
+                
+              </div>
             </Transition.Child>
           </div>
         </div>
       </Dialog>
     </Transition.Root>
-
-      {/* <div className='border-2 flex justify-end bg-purple'>
-        <div>
-            <h1>{id}</h1>
-        </div>
-        <form action="" method="post">
-            <div>
-                <label for="">Add Image</label><br/>
-            </div>
-            <div>
-                <input type="file" name="file" id="" />
-            </div>
-            <div>
-                <label for="">Square Meters</label><br/>
-            </div>
-            <div>
-                <input type="text" name="text" id="" />
-            </div>
-            <div>
-                <label for="">Location</label><br/>
-            </div>
-            <div>
-                <input type="text" name="text" id="" />
-            </div>
-            <div>
-                <label for="">Price</label><br/>
-            </div>
-            <div>
-                <input type="text" name="text" id="" />
-            </div>
-            <div>
-                <label for="">Required Income</label><br/>
-            </div>
-            <div>
-                <input type="text" name="text" id="" />
-            </div>
-        </form>
-      </div> */}
     </>
   )
 }

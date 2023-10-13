@@ -1,40 +1,40 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useState, useRef } from 'react';
 import { FaPlus, FaEdit } from "react-icons/fa"
 import { AiFillDelete } from "react-icons/ai"
-import { useState } from 'react';
-import { Card, Typography } from "@material-tailwind/react";
-import CreateAccount from './CreateAccount'
+import { Button, Card, Typography } from "@material-tailwind/react";
+import Pic from './img/Logo.png';
+import CreateProperty from './CreateProperty';
 
 
-const AccountsManager = () => {
+const PropertyImages = () => {
 
   const [openModal, setOpenModal] = useState(false)
 
-  const TABLE_HEAD = ["ID", "Position", "Email", "Username", "Password", "", ""];
+  const TABLE_HEAD = ["ID", "Images Path", "Property ID", "", ""];
  
 const TABLE_ROWS = [
   {
-    id : "1",
-    position : "Broker",
-    email: "jilsu@gmail.com",
-    username: "jiel",
-    password: "jiel123",
+    id : "1" ,
+    img: Pic,
+    propertyid : "1"
   },
   {
-    id : "2",
-    position : "Agent",
-    email: "jisu@gmail.com",
-    username: "jackie",
-    password: "jackie123",
+    id : "2" ,
+    img: Pic,
+    propertyid : "1"
   },
   {
-    id : "3",
-    position : "Agent",
-    email: "jil@gmail.com",
-    username: "jack",
-    password: "jack123",
-  }
+    id : "3" ,
+    img: Pic,
+    propertyid : "1"
+  },
+  {
+    id : "4" ,
+    img: Pic,
+    propertyid : "1"
+  },
+ 
 ];
 
   return (
@@ -43,16 +43,23 @@ const TABLE_ROWS = [
     <div className='absolute ml-[345px] -mt-[560px]'>
         <div className='absolute -mt-10 bg-white  border-[1px] w-full h-16 p-2 px-4 text-white rounded-full drop-shadow-md '>
           <div className='flex justify-between items-center h-full pl-3 '>
-              <h2 className='text-purple-900 text-xl'>Accounts Manager</h2>
-              
+              <h2 className='text-purple-900 text-xl'>Property Images Manager</h2>
+              {/* <div className='pl-72'>
+                <input 
+                type="search" 
+                name="searchproperty" 
+                id="searchproperty" 
+                placeholder='Search...' 
+                className='bg-gray-100 shadow-inner px-4 w-64 h-10 p-2 rounded-full text-black'/>
+              </div> */}
               <div className='bg-purple-700 text-white p-2 px-4 rounded-full hover:scale-105 duration-150 ease-in-out'>
-                <button onClick={() => setOpenModal(true)} className='flex items-center gap-2'>Add Account<FaPlus /></button>
-              <CreateAccount open={openModal} onClose={() => setOpenModal(false)}/>
+                <button type='button' onClick={() => setOpenModal(true)} className='flex items-center gap-2'>Add Images<FaPlus /></button>
+                <CreateProperty open={openModal} onClose={() => setOpenModal(false)}/>
               </div>
           </div>
         </div>
         <div className='pt-10'>
-            <Card className="h-full w-[1000px] rounded-3xl">
+            <Card className="h-[420px] w-[1000px] rounded-3xl">
             <table className="w-full min-w-max table-auto text-center">
               <thead>
                 <tr>
@@ -70,31 +77,19 @@ const TABLE_ROWS = [
                 </tr>
               </thead>
               <tbody>
-                {TABLE_ROWS.map(({ id, position, email, username, password}, index) => (
+                {TABLE_ROWS.map(({id, img, propertyid, sqm, city, province, price, requiredincome}, index) => (
                   <tr key={id} className="even:bg-blue-gray-100/50">
                     <td className="p-4">
-                      <Typography variant="small" color="blue-gray" className="font-normal">
+                    <Typography variant="small" color="blue-gray" className="font-normal">
                         {id}
                       </Typography>
                     </td>
                     <td className="p-4">
-                      <Typography variant="small" color="blue-gray" className="font-normal">
-                        {position}
-                      </Typography>
+                        <img src={img} alt="" width={100}/>
                     </td>
                     <td className="p-4">
                       <Typography variant="small" color="blue-gray" className="font-normal">
-                        {email}
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography variant="small" color="blue-gray" className="font-normal">
-                        {username}
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography variant="small" color="blue-gray" className="font-normal">
-                        {password}
+                        {propertyid}
                       </Typography>
                     </td>
                   
@@ -119,4 +114,4 @@ const TABLE_ROWS = [
   )
 }
 
-export default AccountsManager;
+export default PropertyImages;
