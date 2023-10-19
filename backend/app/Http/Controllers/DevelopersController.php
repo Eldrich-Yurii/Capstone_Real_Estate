@@ -14,7 +14,7 @@ class DevelopersController extends Controller
      */
     public function index()
     {
-        //
+        return Developers::all();
     }
 
     /**
@@ -35,7 +35,16 @@ class DevelopersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $developer = new Developers();
+
+        $developer->company = $request->company;
+       
+        $developer->save();
+
+        return response()->json([
+            "message" => "Succesful",
+            "data" => $developer,
+        ]);
     }
 
     /**

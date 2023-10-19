@@ -14,7 +14,7 @@ class InquiriesController extends Controller
      */
     public function index()
     {
-        //
+        return Inquiries::all();
     }
 
     /**
@@ -35,7 +35,23 @@ class InquiriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inquiry = new Inquiries();
+
+        $inquiry->first_name = $request->first_name;
+        $inquiry->middle_name = $request->middle_name;
+        $inquiry->last_name = $request->last_name;
+        $inquiry->birth_date = $request->birth_date;
+        $inquiry->contact_number = $request->contact_number;
+        $inquiry->email = $request->email;
+        $inquiry->property_id = $request->property_id;
+        $inquiry->monthly_salary = $request->monthly_salary;
+       
+        $inquiry->save();
+
+        return response()->json([
+            "message" => "Succesful",
+            "data" => $inquiry,
+        ]);
     }
 
     /**

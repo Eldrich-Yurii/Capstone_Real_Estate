@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Accounts;
+use App\Models\Property_images;
 use Illuminate\Http\Request;
 
-class AccountsController extends Controller
+class PropertyImagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AccountsController extends Controller
      */
     public function index()
     {
-        return Accounts::all();
+        return Property_images::all();
     }
 
     /**
@@ -35,28 +35,26 @@ class AccountsController extends Controller
      */
     public function store(Request $request)
     {
-        $account = new Accounts();
+        $property_image = new Property_images();
 
-        $account->email = $request->email;
-        $account->username = $request->username;
-        $account->password = $request->password;
-    
-        $account->save();
+        $property_image->image_path = $request->image_path;
+        $property_image->property_id = $request->property_id;
+       
+        $property_image->save();
 
         return response()->json([
             "message" => "Succesful",
-            "data" => $account,
+            "data" => $property_image,
         ]);
-    
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Property_images  $property_images
      * @return \Illuminate\Http\Response
      */
-    public function show(Accounts $accounts)
+    public function show(Property_images $property_images)
     {
         //
     }
@@ -64,10 +62,10 @@ class AccountsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Property_images  $property_images
      * @return \Illuminate\Http\Response
      */
-    public function edit(Accounts $accounts)
+    public function edit(Property_images $property_images)
     {
         //
     }
@@ -76,10 +74,10 @@ class AccountsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Property_images  $property_images
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Accounts $accounts)
+    public function update(Request $request, Property_images $property_images)
     {
         //
     }
@@ -87,10 +85,10 @@ class AccountsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Property_images  $property_images
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Accounts $accounts)
+    public function destroy(Property_images $property_images)
     {
         //
     }

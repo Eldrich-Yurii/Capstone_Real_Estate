@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Accounts;
+use App\Models\Property_locations;
 use Illuminate\Http\Request;
 
-class AccountsController extends Controller
+class PropertyLocationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AccountsController extends Controller
      */
     public function index()
     {
-        return Accounts::all();
+        return Property_locations::all();
     }
 
     /**
@@ -35,28 +35,27 @@ class AccountsController extends Controller
      */
     public function store(Request $request)
     {
-        $account = new Accounts();
+        $property_location = new Property_locations();
 
-        $account->email = $request->email;
-        $account->username = $request->username;
-        $account->password = $request->password;
-    
-        $account->save();
+        $property_location->city = $request->city;
+        $property_location->province = $request->province;
+        $property_location->property_id = $request->property_id;
+       
+        $property_location->save();
 
         return response()->json([
             "message" => "Succesful",
-            "data" => $account,
+            "data" => $property_location,
         ]);
-    
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Property_locations  $property_locations
      * @return \Illuminate\Http\Response
      */
-    public function show(Accounts $accounts)
+    public function show(Property_locations $property_locations)
     {
         //
     }
@@ -64,10 +63,10 @@ class AccountsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Property_locations  $property_locations
      * @return \Illuminate\Http\Response
      */
-    public function edit(Accounts $accounts)
+    public function edit(Property_locations $property_locations)
     {
         //
     }
@@ -76,10 +75,10 @@ class AccountsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Property_locations  $property_locations
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Accounts $accounts)
+    public function update(Request $request, Property_locations $property_locations)
     {
         //
     }
@@ -87,10 +86,10 @@ class AccountsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Property_locations  $property_locations
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Accounts $accounts)
+    public function destroy(Property_locations $property_locations)
     {
         //
     }

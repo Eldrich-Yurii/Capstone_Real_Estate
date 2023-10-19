@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Accounts;
+use App\Models\Properties;
 use Illuminate\Http\Request;
 
-class AccountsController extends Controller
+class PropertiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AccountsController extends Controller
      */
     public function index()
     {
-        return Accounts::all();
+        return Properties::all();
     }
 
     /**
@@ -35,28 +35,29 @@ class AccountsController extends Controller
      */
     public function store(Request $request)
     {
-        $account = new Accounts();
+        $property = new Properties();
 
-        $account->email = $request->email;
-        $account->username = $request->username;
-        $account->password = $request->password;
-    
-        $account->save();
+        $property->property_name = $request->property_name;
+        $property->developer_id = $request->developer_id;
+        $property->square_meter = $request->square_meter;
+        $property->price = $request->price;
+        $property->required_income = $request->required_income;
+       
+        $property->save();
 
         return response()->json([
             "message" => "Succesful",
-            "data" => $account,
+            "data" => $property,
         ]);
-    
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Properties  $properties
      * @return \Illuminate\Http\Response
      */
-    public function show(Accounts $accounts)
+    public function show(Properties $properties)
     {
         //
     }
@@ -64,10 +65,10 @@ class AccountsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Properties  $properties
      * @return \Illuminate\Http\Response
      */
-    public function edit(Accounts $accounts)
+    public function edit(Properties $properties)
     {
         //
     }
@@ -76,10 +77,10 @@ class AccountsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Properties  $properties
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Accounts $accounts)
+    public function update(Request $request, Properties $properties)
     {
         //
     }
@@ -87,10 +88,10 @@ class AccountsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Accounts  $accounts
+     * @param  \App\Models\Properties  $properties
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Accounts $accounts)
+    public function destroy(Properties $properties)
     {
         //
     }
