@@ -9,12 +9,16 @@ class Properties extends Model
 {
     use HasFactory;
 
+    public function developers() {
+        return $this->hasOne(Developers::class, 'id', 'developer_id');
+    }
+
     protected $table = "properties";
 
     protected $fillable = [
         'property_name',
         'developer_id',
-        'sqaure_meters',
+        'square_meters',
         'price',
         'required_income'
     ];

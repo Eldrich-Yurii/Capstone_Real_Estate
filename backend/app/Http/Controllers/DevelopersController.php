@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\DevelopersResource;
 use App\Models\Developers;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class DevelopersController extends Controller
      */
     public function index()
     {
-        return Developers::all();
+        return response()->json(["data" => DevelopersResource::collection(Developers::all())]);
     }
 
     /**
@@ -55,7 +56,7 @@ class DevelopersController extends Controller
      */
     public function show(Developers $developers)
     {
-        //
+        // 
     }
 
     /**
@@ -76,9 +77,19 @@ class DevelopersController extends Controller
      * @param  \App\Models\Developers  $developers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Developers $developers)
+    public function update(Request $request, $id)
     {
-        //
+        // Select * from developers where id = $id
+        $developer = Developers::find($id);
+
+        $developer->company = $request->company;
+        $developer->save();
+
+        return response()->json
+        ([
+            "message" => "Updated Succefully!",
+            "data" => $developer
+        ]);
     }
 
     /**
@@ -87,8 +98,18 @@ class DevelopersController extends Controller
      * @param  \App\Models\Developers  $developers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Developers $developers)
+    public function destroy(Developers $id)
     {
-        //
+        // Select * from developers where id = $id
+        $developer = Developers::find($id);
+
+        $developer->delete();
+
+        return response()->json
+        ([
+            "message" => "Deleted Successfully!",
+            "data" => $developer
+        ]);
+
     }
 }

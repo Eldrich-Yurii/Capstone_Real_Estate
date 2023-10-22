@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PropertiesResource;
 use App\Models\Properties;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-        return Properties::all();
+        $properties = Properties::with('developers')->get();
+        return response()->json(["data" => PropertiesResource::collection($properties)]);
     }
 
     /**
@@ -80,9 +82,23 @@ class PropertiesController extends Controller
      * @param  \App\Models\Properties  $properties
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Properties $properties)
+    public function update(Request $request, $id)
     {
-        //
+        // Select * from properties where id = $id;
+        $property = Properties::find($id);
+
+        $property->property_name = $request->property_name;
+        $property->developer_id = $request->developer_id;
+        $property->square_meter = $request->square_meter;
+        $property->price = $request->price;
+        $property->required_income = $request->required_income;
+       
+        $property->save();
+
+        return response()->json([
+            "message" => "Updated Succesfully",
+            "data" => $property,
+        ]);
     }
 
     /**
@@ -91,8 +107,14 @@ class PropertiesController extends Controller
      * @param  \App\Models\Properties  $properties
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Properties $properties)
+    public function destroy( $id)
     {
-        //
+         // Select * from properties where id = $id;
+         $property = Properties::find($id);
+         $property->delete();
+         return response()->json([
+            "message" => "Deleted Succesfully",
+            "data" => $property,
+        ]);
     }
 }

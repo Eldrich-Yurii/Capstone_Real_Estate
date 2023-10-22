@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\AccountsResource;
 use App\Models\Accounts;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,7 @@ class AccountsController extends Controller
      */
     public function index()
     {
-        return Accounts::all();
+        return response()->json(["data" => AccountsResource::collection(Accounts::all())]);
     }
 
     /**
@@ -40,6 +42,7 @@ class AccountsController extends Controller
         $account->email = $request->email;
         $account->username = $request->username;
         $account->password = $request->password;
+        $account->userType = $request->userType;
     
         $account->save();
 
@@ -79,9 +82,24 @@ class AccountsController extends Controller
      * @param  \App\Models\Accounts  $accounts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Accounts $accounts)
+    public function update(Request $request, $id)
     {
-        //
+        // Select * from accounts where id = $id;
+        $account = Accounts::find($id);
+
+        $account->email = $request->email;
+        $account->username = $request->username;
+        $account->password = $request->password;
+        $account->userType = $request->userType;
+
+    
+        $account->save();
+
+        return response()->json
+        ([
+            "message" => "Updated Successfully!",
+            "data" => $account,
+        ]);
     }
 
     /**
@@ -90,8 +108,55 @@ class AccountsController extends Controller
      * @param  \App\Models\Accounts  $accounts
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Accounts $accounts)
+    public function destroy($id)
     {
-        //
+        // Select * from accounts where id = $id;
+        $account = Accounts::find($id);
+
+        $account->delete();
+
+        return response()->json
+        ([
+            "message" => "Deleted Successfully!",
+            "data" => $account
+        ]);
+    }
+
+    public function login(Request $request)
+    {
+        $user = Accounts::where(['username'=> $request->username,])->first();
+        if(!Hash::check($request->password, $user->password))
+        {
+            return [
+                'sucess'=>'false',
+                'message'=>'Email & Password not matched!!!',
+            ];
+        } 
+
+        return response()->json([
+            'sucess'=>'true',
+            'message'=>'You are logged in',
+            'data'=>$user
+        ]);
+    }
+
+    public function signup(Request $request)
+    {
+        $user = Accounts::create([
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => Hash::make($request->password)
+        ]);
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Registration failed',
+            ]);
+        }
+        
+        return response()->json([
+            'success' => 'true',
+            'message' => 'Registered successfully',
+        ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\InquiriesResource;
 use App\Models\Inquiries;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class InquiriesController extends Controller
      */
     public function index()
     {
-        return Inquiries::all();
+        return response()->json(["data" => InquiriesResource::collection(Inquiries::all())]);
     }
 
     /**
@@ -83,9 +84,27 @@ class InquiriesController extends Controller
      * @param  \App\Models\Inquiries  $inquiries
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inquiries $inquiries)
+    public function update(Request $request, $id)
     {
-        //
+        // Select * from inquiries where id = $id
+        $inquiry = Inquiries::find($id);
+
+        
+        $inquiry->first_name = $request->first_name;
+        $inquiry->middle_name = $request->middle_name;
+        $inquiry->last_name = $request->last_name;
+        $inquiry->birth_date = $request->birth_date;
+        $inquiry->contact_number = $request->contact_number;
+        $inquiry->email = $request->email;
+        $inquiry->property_id = $request->property_id;
+        $inquiry->monthly_salary = $request->monthly_salary;
+       
+        $inquiry->save();
+
+        return response()->json([
+            "message" => "Update Succesful!",
+            "data" => $inquiry,
+        ]);
     }
 
     /**
@@ -94,8 +113,16 @@ class InquiriesController extends Controller
      * @param  \App\Models\Inquiries  $inquiries
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inquiries $inquiries)
+    public function destroy(Inquiries $id)
     {
-        //
+        // Select * from inquiries where id = $id;
+        $inquiry = Inquiries::find($id);
+
+        $inquiry->delete();
+
+        return response()->json([
+            "message" => "Deleted Succesfully!",
+            "data" => $inquiry,
+        ]);
     }
 }
