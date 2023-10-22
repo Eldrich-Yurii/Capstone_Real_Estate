@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
+import dotenv from 'dotenv'
 import LoginPage from './backOfficeUi/LoginPage/LoginPage';
 import AdminDashboard from './backOfficeUi/Admin/AdminDashboard/AdminDashboard';
 import ClientsTable from './backOfficeUi/Admin/ClientsTable/ClientsTable';

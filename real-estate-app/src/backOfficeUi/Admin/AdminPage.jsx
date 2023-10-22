@@ -1,14 +1,31 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, AccordionHeader, AccordionBody,
 } from "@material-tailwind/react";
 import { PresentationChartBarIcon, Cog6ToothIcon, InboxIcon, PowerIcon, } from "@heroicons/react/24/solid";
 import { PiBuildingsFill } from 'react-icons/pi'
 import { FaThList, FaImages } from 'react-icons/fa'
 import Logo from './img/LOGO-NAME.svg'
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+
 
 
 const AdminPage = () => {
+
+
+  const [auth, setAuth] = useState(localStorage.getItem('userType'));
+  const navigate = useNavigate();
+
+  useEffect(() => {
+      if (auth !== 'admin') {
+          navigate('/');
+      }
+  }, [auth, navigate]);
+
+  const logOut = () => {
+      localStorage.removeItem('userType');
+      navigate('/');
+  };
 
   return (
     <>
@@ -62,7 +79,7 @@ const AdminPage = () => {
                 <ListItemPrefix>
                   <PowerIcon className="h-5 w-5 text-red-700" />
                 </ListItemPrefix>
-                Log Out
+               <button onClick={() => logOut()}>Log Out</button>
               </ListItem>
             </List>
           </aside>

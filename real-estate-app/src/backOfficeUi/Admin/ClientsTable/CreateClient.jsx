@@ -1,14 +1,53 @@
 import React from 'react'
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useState } from 'react'
+import constants from '../../../components/Constant'
+import axios from 'axios'
 import { Dialog, Transition } from '@headlessui/react'
 import { AiFillCloseCircle } from 'react-icons/ai'
 
 
 
 function CreateClient({open, onClose}) {
+   
   if (!open) 
   return null;
   const [openModal, setOpenModal] = useState(true)
+  
+  const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [birthDate, setBirthDate] = useState("");
+  const [contactNumber, setContactNumber] = useState(0);
+  const [email, setEmail] = useState("");
+  const [value, setValue] = useState("");
+  const [monthlySalary, setMonthlySalary] = useState(0);
+
+  const formEndpoint = `${constants.ENDPOINT}/api/inquiries`;
+
+  async function storeInquiries(e) {
+    e.preventDefault();
+
+    const payload = {
+      first_name: firstName,
+      middle_name: middleName,
+      last_name: lastName,
+      birth_date: birthDate,
+      contact_number: contactNumber,
+      email: email,
+      property_id: value,
+      monthly_salary: monthlySalary
+    }
+
+    await axios.post(formEndpoint, payload)
+    .then((response) => {
+      console.log(response.data)
+      alert('Inquiry Sent Successfully!')
+    })
+    .catch((error) => {
+      console.error(error);
+      alert('Sending Failed.')
+    });
+  }
 
   return (
     <>
@@ -56,7 +95,10 @@ function CreateClient({open, onClose}) {
                                 name="firstName" 
                                 id="firstName" 
                                 placeholder='Enter a First Name'
-                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl pr-3'/>
+                                value={firstName}
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl pr-3'
+                                onChange={(e) => setFirstName(e.target.value)}
+                                />
                               </div>
                             </div>
                             <div className='pb-2'>
@@ -70,7 +112,10 @@ function CreateClient({open, onClose}) {
                                 name="middleName" 
                                 id="middleName"
                                 placeholder='Enter a Middle Name'
-                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl pr-3'/>
+                                value={middleName}
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl pr-3'
+                                onChange={(e) => setMiddleName(e.target.value)}
+                                />
                               </div>
                             </div>
                           </div>
@@ -86,7 +131,10 @@ function CreateClient({open, onClose}) {
                                 name="lastName" 
                                 id="lastName" 
                                 placeholder='Enter a Last Name'
-                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl '/>
+                                value={lastName}
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl '
+                                onChange={(e) => setLastName(e.target.value)}
+                                />
                               </div>
                             </div>
                             <div className='pb-2'>
@@ -99,7 +147,10 @@ function CreateClient({open, onClose}) {
                                 type="date" 
                                 name="dateOfBirth" 
                                 id="dateOfBirth"
-                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl pr-3'/>
+                                value={birthDate}
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl pr-3'
+                                onChange={(e) => setBirthDate(e.target.value)}
+                                />
                               </div>
                             </div>
                           </div>
@@ -115,7 +166,10 @@ function CreateClient({open, onClose}) {
                                 name="contactNumber" 
                                 id="contactNumber" 
                                 placeholder='Ex. 09180328112'
-                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl '/>
+                                value={contactNumber}
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl '
+                                onChange={(e) => setContactNumber(e.target.value)}
+                                />
                               </div>
                             </div>
                             <div className='pb-2'>
@@ -129,7 +183,10 @@ function CreateClient({open, onClose}) {
                                 name="email" 
                                 id="email" 
                                 placeholder='Ex. yourname@gmailcom'
-                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl '/>
+                                value={email}
+                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl'
+                                onChange={(e) => setEmail(e.target.value)}
+                                />
                               </div>
                             </div>
                           </div>
@@ -183,7 +240,10 @@ function CreateClient({open, onClose}) {
                                   name="monthlySalary" 
                                   id="monthlySalary" 
                                   placeholder='Ex. 30000'
-                                  className='px-3 bg-gray-300 w-full h-10 rounded-2xl '/>
+                                  value={monthlySalary}
+                                  className='px-3 bg-gray-300 w-full h-10 rounded-2xl'
+                                  onChange={(e) => setMonthlySalary(e.target.value)}
+                                  />
                                 </div>
                               </div>
                           </div>
@@ -193,7 +253,7 @@ function CreateClient({open, onClose}) {
                                 <button type="reset" onClick={onClose}>Cancel</button>
                               </div>
                               <div className='text-white bg-purple-700 py-2 px-4 rounded-2xl hover:bg-purple-900'>
-                                <button type="submit">Add Property</button>
+                                <button onClick={storeInquiries}>Add Client</button>
                               </div>
                           </div>
                         </form>

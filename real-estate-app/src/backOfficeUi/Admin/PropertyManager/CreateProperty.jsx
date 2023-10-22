@@ -1,14 +1,44 @@
 import React from 'react'
 import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, Transition, Listbox } from '@headlessui/react'
 import { AiFillCloseCircle } from 'react-icons/ai'
-
+import constants from '../../../components/Constant'
 
 
 function CreateProperty({open, onClose}) {
   if (!open) 
   return null;
   const [openModal, setOpenModal] = useState(true)
+
+  const [propertyName, setPropertyName] = useState("");
+  const [developerId, setDeveloperId] = useState("");
+  const [squareMeter, setSquareMeter] = useState("");
+  const [price, setPrice] = useState("");
+  const [requiredIncome, setRequiredIncome] = useState(0);
+
+  const formEndpoint = `${constants.ENDPOINT}/api/inquiries`;
+
+  async function storeProperty(e) {
+    e.preventDefault();
+
+    const payload = {
+      property_name: propertyName,
+      developer_id: developerId,
+      square_meter: squareMeter,
+      price: price,
+      required_income: requiredIncome,
+    }
+
+    await axios.post(formEndpoint, payload)
+    .then((response) => {
+      console.log(response.data)
+      alert('Inquiry Sent Successfully!')
+    })
+    .catch((error) => {
+      console.error(error);
+      alert('Sending Failed.')
+    });
+  }
 
   return (
     <>
@@ -53,6 +83,7 @@ function CreateProperty({open, onClose}) {
                               type="file" 
                               name="property" 
                               id="property" 
+                              
                               className=' bg-gray-300 w-full rounded-r-full'/>
                             </div>
                           </div>
@@ -67,10 +98,12 @@ function CreateProperty({open, onClose}) {
                                 type="text" 
                                 name="name" 
                                 id="name" 
+                                value={propertyName}
                                 placeholder='Name of Property'
                                 className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
                               </div>
                             </div>
+                            
                             <div className='pb-2'>
                               {/* Developer */}
                               <div className='pb-2'>
@@ -81,11 +114,13 @@ function CreateProperty({open, onClose}) {
                                 type="text" 
                                 name="developer" 
                                 id="developer"
+                                value={de}
                                 placeholder='Property Developer'
                                 className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
                               </div>
                             </div>
                           </div>
+
                           <div className='grid grid-cols-2 gap-3'>
                             <div className='pb-2'>
                               {/* Square meters */}
@@ -97,6 +132,7 @@ function CreateProperty({open, onClose}) {
                                 type="text" 
                                 name="sqm" 
                                 id="sqm" 
+                                value={squareMeter}
                                 placeholder='Ex. 32 sqm'
                                 className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
                               </div>
@@ -111,6 +147,7 @@ function CreateProperty({open, onClose}) {
                                 type="text" 
                                 name="price" 
                                 id="price" 
+                                value={price}
                                 placeholder='Ex. Php 1,000,000'
                                 className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
                               </div>
@@ -127,6 +164,7 @@ function CreateProperty({open, onClose}) {
                                 type="text" 
                                 name="city" 
                                 id="city" 
+                                value={city}
                                 placeholder='Ex. Santa Maria'
                                 className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
                               </div>
@@ -141,6 +179,7 @@ function CreateProperty({open, onClose}) {
                                 type="text" 
                                 name="province" 
                                 id="province"
+                                // value={}
                                 placeholder='Ex. Bulacan'
                                 className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
                               </div>
@@ -158,6 +197,7 @@ function CreateProperty({open, onClose}) {
                               type="text" 
                               name="requiredIncome" 
                               id="requiredIncome" 
+                              value={requiredIncome}
                               placeholder='Ex. Php 30, 000'
                               className='pl-3 bg-gray-300 w-full h-10 rounded-full '/>
                             </div>
@@ -167,7 +207,7 @@ function CreateProperty({open, onClose}) {
                                 <button type="reset" onClick={onClose}>Cancel</button>
                               </div>
                               <div className='text-white bg-purple-700 py-2 px-4 rounded-full hover:bg-purple-900'>
-                                <button type="submit">Add Property</button>
+                                <button onClick={storeProperty}>Add Property</button>
                               </div>
                           </div>
                         </form>
