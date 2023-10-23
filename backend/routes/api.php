@@ -25,12 +25,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Route::apiResource('accounts', AccountsController::class);
-Route::apiResource('developers', DevelopersController::class);
+// Route::apiResource('developers', DevelopersController::class);
 Route::apiResource('inquiries', InquiriesController::class);
 Route::apiResource('properties', PropertiesController::class);
 Route::apiResource('property_images', PropertyImagesController::class);
 Route::apiResource('property_locations', PropertyLocationsController::class);
 
-
+Route::get('accounts', [AccountsController::class, 'index']);
 Route::post('login', [AccountsController::class, 'login']);
 Route::post('signup', [AccountsController::class,'signup']);

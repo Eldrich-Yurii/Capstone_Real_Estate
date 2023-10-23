@@ -113,11 +113,10 @@ class InquiriesController extends Controller
      * @param  \App\Models\Inquiries  $inquiries
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inquiries $id)
+    public function destroy($id)
     {
         // Select * from inquiries where id = $id;
         $inquiry = Inquiries::find($id);
-
         $inquiry->delete();
 
         return response()->json([
