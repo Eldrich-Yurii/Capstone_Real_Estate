@@ -17,10 +17,10 @@ function CreateClient({open, onClose}) {
   const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
   const [birthDate, setBirthDate] = useState("");
-  const [contactNumber, setContactNumber] = useState(0);
+  const [contactNumber, setContactNumber] = useState(null);
   const [email, setEmail] = useState("");
   const [value, setValue] = useState("");
-  const [monthlySalary, setMonthlySalary] = useState(0);
+  const [monthlySalary, setMonthlySalary] = useState(null);
 
   const formEndpoint = `${constants.ENDPOINT}/api/inquiries`;
 

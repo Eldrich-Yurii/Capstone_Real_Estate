@@ -4,7 +4,7 @@ import { BiSolidDashboard } from 'react-icons/bi'
 
 const AdminDashboard = () => {
   return (
-    <div className='absolute ml-[350px] -mt-[560px]'>
+    <div className='absolute ml-[335px] -mt-[660px]'>
     <div className='absolute -mt-10 bg-white  border-[1px] h-16 p-2 px-4 text-white rounded-full drop-shadow-md '>
       <div className='w-[950px] h-full'>
           <div className='flex items-center justify-between px-3 py-2'>

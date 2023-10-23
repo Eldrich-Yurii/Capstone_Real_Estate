@@ -34,6 +34,7 @@ const LoginPage = () => {
         const auth = localStorage.getItem('userType');
         if (auth === 'admin') {
           navigate('/admin-dashboard');
+          alert("You are now logged in!")
         } else {
           navigate('/');
         }

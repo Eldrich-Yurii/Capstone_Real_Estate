@@ -2,40 +2,56 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { FaPlus, FaEdit } from "react-icons/fa"
 import { AiFillDelete } from "react-icons/ai"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import constants from '../../../components/Constant';
 import { Card, Typography } from "@material-tailwind/react";
 import CreateAccount from './CreateAccount'
+import DataTable from 'react-data-table-component';
 
+const columns = [
+  {
+      name: 'ID',
+      selector: row => row.account_id,
+  },
+  {
+      name: 'email',
+      selector: row => row.email,
+  },
+  {
+      name: 'Username',
+      selector: row => row.user_name,
+  },
+  {
+      name: 'Password',
+      selector: row => row.password,
+  }
+]
 
 const AccountsManager = () => {
 
   const [openModal, setOpenModal] = useState(false)
 
-  const TABLE_HEAD = ["ID", "Position", "Email", "Username", "Password", "", ""];
- 
-const TABLE_ROWS = [
-  {
-    id : "1",
-    position : "Broker",
-    email: "jilsu@gmail.com",
-    username: "jiel",
-    password: "jiel123",
-  },
-  {
-    id : "2",
-    position : "Agent",
-    email: "jisu@gmail.com",
-    username: "jackie",
-    password: "jackie123",
-  },
-  {
-    id : "3",
-    position : "Agent",
-    email: "jil@gmail.com",
-    username: "jack",
-    password: "jack123",
+  const [accountList, setAccountList] = useState([])
+
+  const accountEndpoint = `${constants.ENDPOINT}/api/accounts`;
+
+  useEffect(() => {
+    index()
+  }, [])
+
+  async function index() {
+    await axios.get(accountEndpoint)
+    .then((response) => {
+      setAccountList(response.data.data)
+    })
+    .catch((response) => {
+      console.log(response)
+    })
   }
-];
+ 
+
+ 
 
   return (
     <>
@@ -52,67 +68,12 @@ const TABLE_ROWS = [
           </div>
         </div>
         <div className='pt-10'>
-            <Card className="h-full w-[1000px] rounded-3xl">
-            <table className="w-full min-w-max table-auto text-center">
-              <thead>
-                <tr>
-                  {TABLE_HEAD.map((head) => (
-                    <th key={head} className="border-b border-blue-gray-100 p-4">
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal leading-none opacity-70"
-                        >
-                        {head}
-                      </Typography>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {TABLE_ROWS.map(({ id, position, email, username, password}, index) => (
-                  <tr key={id} className="even:bg-blue-gray-100/50">
-                    <td className="p-4">
-                      <Typography variant="small" color="blue-gray" className="font-normal">
-                        {id}
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography variant="small" color="blue-gray" className="font-normal">
-                        {position}
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography variant="small" color="blue-gray" className="font-normal">
-                        {email}
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography variant="small" color="blue-gray" className="font-normal">
-                        {username}
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography variant="small" color="blue-gray" className="font-normal">
-                        {password}
-                      </Typography>
-                    </td>
-                  
-                    <td className="p-4">
-                      <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
-                      <FaEdit  className='text-xl text-green-500'/>
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
-                      <AiFillDelete className='text-xl text-red-500'/>
-                      </Typography>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </Card>
+            <div className="h-full w-[1000px] rounded-3xl">
+            <DataTable 
+            columns={columns}
+            data={accountList}
+            />
+          </div>
         </div>
       </div>
     </>

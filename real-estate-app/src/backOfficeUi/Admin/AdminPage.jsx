@@ -30,7 +30,7 @@ const AdminPage = () => {
   return (
     <>
       <div className="bg-gray-300">
-          <aside className=" h-screen w-full max-w-[20rem] p-4 bg-white shadow-2xl  ">
+          <aside className=" h-[710px]  w-full max-w-[20rem] p-4 bg-white shadow-2xl  ">
             <div className="mb-2 p-4">
               <img src={Logo} alt="" width={100} />
             </div>
