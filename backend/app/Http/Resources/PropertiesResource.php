@@ -21,6 +21,8 @@ class PropertiesResource extends JsonResource
             "sqm" => $this->square_meter,
             "price" => $this->price,
             "required_income" => $this->required_income,
+            "city" => $this->locations->city,
+            "province" => $this->locations->province,
             "created_at" => $this->created_at,
         ];
     }

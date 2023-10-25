@@ -12,14 +12,18 @@ class Properties extends Model
     public function developers() {
         return $this->hasOne(Developers::class, 'id', 'developer_id');
     }
+    public function locations() {
+        return $this->hasOne(Property_locations::class, 'id', 'location_id');
+    }
 
     protected $table = "properties";
 
     protected $fillable = [
         'property_name',
         'developer_id',
-        'square_meters',
+        'square_meter',
         'price',
-        'required_income'
+        'required_income',
+        'location_id'
     ];
 }

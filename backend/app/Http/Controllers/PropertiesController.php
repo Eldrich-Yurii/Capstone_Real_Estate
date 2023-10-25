@@ -15,7 +15,10 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-        $properties = Properties::with('developers')->get();
+        $properties = Properties::with('developers')
+                                ->with('locations') 
+                                ->get();
+
         return response()->json(["data" => PropertiesResource::collection($properties)]);
     }
 
@@ -44,6 +47,7 @@ class PropertiesController extends Controller
         $property->square_meter = $request->square_meter;
         $property->price = $request->price;
         $property->required_income = $request->required_income;
+        $property->location_id = $request->location_id;
        
         $property->save();
 
@@ -92,6 +96,7 @@ class PropertiesController extends Controller
         $property->square_meter = $request->square_meter;
         $property->price = $request->price;
         $property->required_income = $request->required_income;
+        $property->location_id = $request->location_id;
        
         $property->save();
 
@@ -107,11 +112,12 @@ class PropertiesController extends Controller
      * @param  \App\Models\Properties  $properties
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
          // Select * from properties where id = $id;
          $property = Properties::find($id);
          $property->delete();
+         
          return response()->json([
             "message" => "Deleted Succesfully",
             "data" => $property,

@@ -6,6 +6,7 @@ use App\Http\Controllers\InquiriesController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\PropertyImagesController;
 use App\Http\Controllers\PropertyLocationsController;
+use App\Http\Controllers\StatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,9 +28,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::apiResource('accounts', AccountsController::class);
 // Route::apiResource('developers', DevelopersController::class);
 Route::apiResource('inquiries', InquiriesController::class);
+Route::apiResource('status', StatusController::class);
 Route::apiResource('properties', PropertiesController::class);
 Route::apiResource('property_images', PropertyImagesController::class);
 Route::apiResource('property_locations', PropertyLocationsController::class);
+
 
 Route::get('accounts', [AccountsController::class, 'index']);
 Route::post('login', [AccountsController::class, 'login']);

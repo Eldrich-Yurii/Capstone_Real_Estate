@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PropertiesResource;
-use App\Http\Resources\PropertyLocationsResource;
-use App\Models\Properties;
-use App\Models\Property_locations;
+use App\Http\Resources\StatusResource;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
-class PropertyLocationsController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,7 @@ class PropertyLocationsController extends Controller
      */
     public function index()
     {
-        return response()->json(["data" => PropertyLocationsResource::collection(Property_locations::all())]);
+        return response()->json(["data" => StatusResource::collection(Status::all())]);
     }
 
     /**
@@ -38,26 +36,25 @@ class PropertyLocationsController extends Controller
      */
     public function store(Request $request)
     {
-        $property_location = new Property_locations();
+        $status = new Status();
 
-        $property_location->city = $request->city;
-        $property_location->province = $request->province;
+        $status->status = $request->status;
        
-        $property_location->save();
+        $status->save();
 
         return response()->json([
-            "message" => "Succesful",
-            "data" => $property_location,
+            "message" => "Added Successfully",
+            "data" => $status,
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Property_locations  $property_locations
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function show(Property_locations $property_locations)
+    public function show(Status $status)
     {
         //
     }
@@ -65,10 +62,10 @@ class PropertyLocationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Property_locations  $property_locations
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function edit(Property_locations $property_locations)
+    public function edit(Status $status)
     {
         //
     }
@@ -77,42 +74,43 @@ class PropertyLocationsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Property_locations  $property_locations
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        // Select * from property_locations where id = $id;
-        $property_location = Property_locations::find($id);
+        // Select * from status where id = $id;
+        $status = Status::find($id);
 
-        $property_location->city = $request->city;
-        $property_location->province = $request->province;
+        $status->status = $request->status;
+        
        
-        $property_location->save();
+        $status->save();
 
         return response()->json([
             "message" => "Updated Succesfully!",
-            "data" => $property_location,
+            "data" => $status,
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Property_locations  $property_locations
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        // Select * from property_locations where id = $id;
-        $property_location = Property_locations::find($id);
+        // Select * from status where id = $id;
+        $status = Status::find($id);
 
-        $property_location->delete();
+        $status->delete();
 
         return response()->json
         ([
             "message" => "Deleted Successfully!",
-            "data" => $property_location
+            "data" => $status
         ]);
     }
 }
+

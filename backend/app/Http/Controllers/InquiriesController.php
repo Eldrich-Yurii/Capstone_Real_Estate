@@ -15,7 +15,8 @@ class InquiriesController extends Controller
      */
     public function index()
     {
-        return response()->json(["data" => InquiriesResource::collection(Inquiries::all())]);
+        $inquiry = Inquiries::with('status')->get();
+        return response()->json(["data" => InquiriesResource::collection($inquiry)]);
     }
 
     /**
@@ -46,6 +47,7 @@ class InquiriesController extends Controller
         $inquiry->email = $request->email;
         $inquiry->property_id = $request->property_id;
         $inquiry->monthly_salary = $request->monthly_salary;
+        $inquiry->status_id = $request->status_id;
        
         $inquiry->save();
 
@@ -98,7 +100,8 @@ class InquiriesController extends Controller
         $inquiry->email = $request->email;
         $inquiry->property_id = $request->property_id;
         $inquiry->monthly_salary = $request->monthly_salary;
-       
+        $inquiry->status_id = $request->status_id;
+
         $inquiry->save();
 
         return response()->json([

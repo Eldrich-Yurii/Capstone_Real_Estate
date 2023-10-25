@@ -24,6 +24,7 @@ class InquiriesResource extends JsonResource
             "email" =>$this->email,
             "property"=>$this->property_id,
             "monthly_salary"=>$this->monthly_salary,
+            "status"=>$this->status->status,
             "created_at" =>$this->created_at
         ];
     }
