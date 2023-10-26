@@ -7,9 +7,9 @@ import Cavite from './img/cavite.png';
 function Cards() {
   return (
     <>
-    <div id='location'>
-      <h1 className=' pt-10 text-2xl text-gray-900 md:lg:text-3xl font-bold text-center'>Popular Locations</h1>
-      <div className='mt-8 mb-8 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12'/>
+    <div id='location' className='bg-gray-200 pb-10'>
+      <h1 className=' pt-16 text-2xl text-gray-900 md:lg:text-3xl font-bold text-center'>Popular Locations</h1>
+      <div className='mb-5 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-5 md:lg:mx-16 md:lg:w-11/12'/>
       <div className='pb-7 mx-14 md:lg:flex justify-center gap-10'>
           <div className="w-full mt-5 ml-1 drop-shadow-2xl group duration-500 cursor-pointer group overflow-hidden relative text-gray-50 md:lg:h-72 md:lg:w-80 hover:duration-700 hover:shadow-2xl">
             <div className="w-full bg-purple-200 text-gray-100 md:lg:h-72 md:lg:w-80">

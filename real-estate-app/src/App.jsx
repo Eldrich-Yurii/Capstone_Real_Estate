@@ -32,8 +32,9 @@ function App() {
       <Quote />
       <Properties />
       <Cards />
+      
       <Developers />
-      <div className='mt-8 mb-8 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12 md:lg:mb-10'/>
+      {/* <div className='mt-8 mb-8 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12 md:lg:mb-10'/> */}
       <Bullets />
       <div className='mt-72  mb-5 mx-10 w-[405px] border-b-2 border-purple-400 rounded-xl md:lg:mt-10 md:lg:mx-16 md:lg:w-11/12'/>
       <Quote2 />

@@ -1,76 +1,79 @@
 import React from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
-import { Card, Typography, Badge, IconButton } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CreateClient from "./CreateClient";
+import UpdateModal from "./ClientUpdate";
 import Datatable from "react-data-table-component";
 import constants from "../../../components/Constant";
 import axios from "axios";
 
-const columns = [
-  {
-    name: "ID",
-    selector: (row) => row.id,
-    height: "50px",
-    sortable: true
-  },
-  {
-    name: "First Name",
-    selector: (row) => row.first_name,
-    sortable: true
-  },
-  {
-    name: "Middle Name",
-    selector: (row) => row.middle_name,
-  },
-  {
-    name: "Last Name",
-    selector: (row) => row.last_name,
-  },
-  {
-    name: "Status",
-    selector: (row) => row.status,
-  },
-  {
-    name: "Birth Date",
-    selector: (row) => row.birth_date,
-  },
-  {
-    name: "Contact Number",
-    selector: (row) => row.contact_number,
-  },
-  {
-    name: "Email",
-    selector: (row) => row.email,
-  },
-  {
-    name: "Property",
-    selector: (row) => row.property,
-  },
-  {
-    name: "Monthly Salary",
-    selector: (row) => row.monthly_salary,
-  },
-  {
-    name: "Created At",
-    selector: (row) => row.created_at,
-  },
-  {
-    name: 'Edit',
-    button: true,
-    cell: (row) => <button onClick={() => handleEdit(row.id)}>Edit</button>,
-},
-];
+
 
 const LeadPondUi = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [updateModal, setUpdateModal] = useState(false);
   const [data, setData] = useState();
   const [pending, setPending] = useState(true);
 	const [rows, setRows] = useState([]);
   const [selectedRows, setSelectedRows] = useState(false);
-
+  const [editRows, setEditRows] = useState(false);
+  
   const inquiryEndpoint = `${constants.ENDPOINT}/api/inquiries/`;
+ 
+  const columns = [
+    {
+      name: "ID",
+      selector: (row) => row.id,
+      height: "50px",
+      sortable: true
+    },
+    {
+      name: "First Name",
+      selector: (row) => row.first_name,
+      sortable: true
+    },
+    {
+      name: "Middle Name",
+      selector: (row) => row.middle_name,
+    },
+    {
+      name: "Last Name",
+      selector: (row) => row.last_name,
+    },
+    {
+      name: "Birth Date",
+      selector: (row) => row.birth_date,
+    },
+    {
+      name: "Contact Number",
+      selector: (row) => row.contact_number,
+    },
+    {
+      name: "Email",
+      selector: (row) => row.email,
+    },
+    {
+      name: "Property",
+      selector: (row) => row.property,
+    },
+    {
+      name: "Monthly Salary",
+      selector: (row) => row.monthly_salary,
+    },
+    {
+      name: "Status",
+      selector: (row) => row.status,
+    },
+    {
+      name: "Created At",
+      selector: (row) => row.created_at,
+    },
+    {
+      name: 'Edit',
+      button: true,
+      cell: (row) => <button onClick={() => handleEdit(row.id)}>Edit</button>,
+  },
+  ];
 
   useEffect(() => {
     index();
@@ -82,10 +85,10 @@ const LeadPondUi = () => {
   }, []);
 
   async function index() {
-    await axios
-      .get(inquiryEndpoint)
+    await axios.get(inquiryEndpoint)
       .then((response) => {
         setData(response.data.data);
+        console.log(response.data.data)
       })
       .catch((response) => {
         console.log(response);
@@ -95,6 +98,7 @@ const LeadPondUi = () => {
 
   async function destroy(id) {
     await axios.delete(inquiryEndpoint + id)
+    
   }
 
   const handleDelete = () => { 
@@ -107,6 +111,13 @@ const LeadPondUi = () => {
   const handleChange = ({ selectedRows }) => {
     setSelectedRows(selectedRows);
   };
+
+  const handleEdit = (row) => {
+    // setEditRows=(row)
+    // updateModal=(true)
+  }
+
+
 
 
   return (
@@ -131,7 +142,15 @@ const LeadPondUi = () => {
           </div>
         </div>
         <div className="mt-10 rounded-t-3xl w-[1000px]">
-          <Datatable columns={columns} data={data} progressPending={pending} pagination selectableRows onSelectedRowsChange={handleChange} />
+          <Datatable 
+          columns={columns} 
+          data={data} 
+          progressPending={pending} 
+          pagination selectableRows 
+          onSelectedRowsChange={handleChange} />
+          <UpdateModal 
+          open={updateModal} 
+          onClose={() => setUpdateModal(false)}/>
         </div>
       </div>
     </>

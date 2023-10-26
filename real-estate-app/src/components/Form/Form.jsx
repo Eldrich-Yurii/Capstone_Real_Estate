@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Select, Option, Input } from "@material-tailwind/react";
 import axios from 'axios';
 import constants from "../Constant";
 import Logo from "./img/LOGO-NAME.svg";
@@ -10,13 +11,14 @@ const Form = () => {
   const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
   const [birthDate, setBirthDate] = useState("");
-  const [contactNumber, setContactNumber] = useState(0);
+  const [contactNumber, setContactNumber] = useState(null);
   const [email, setEmail] = useState("");
-  const [value, setValue] = useState("");
-  const [monthlySalary, setMonthlySalary] = useState(0);
+  const [property, setProperty] = useState([]);
+  const [monthlySalary, setMonthlySalary] = useState(null);
+  const [status, setStatus] = useState(1);
 
   const formEndpoint = `${constants.ENDPOINT}/api/inquiries`;
-
+  const propertyDropDown = `${constants.ENDPOINT}/api/properties`;
   async function storeInquiries(e) {
     e.preventDefault();
 
@@ -27,8 +29,9 @@ const Form = () => {
       birth_date: birthDate,
       contact_number: contactNumber,
       email: email,
-      property_id: value,
-      monthly_salary: monthlySalary
+      // property_id: property,
+      monthly_salary: monthlySalary,
+      status_id: status
     }
 
     await axios.post(formEndpoint, payload)
@@ -37,10 +40,27 @@ const Form = () => {
       alert('Inquiry Sent Successfully!')
     })
     .catch((error) => {
-      console.error(error);
+      console.log(error);
       alert('Sending Failed.')
     });
   }
+
+  useEffect(() => {
+    index();
+  }, []);
+
+  async function index() {
+    await axios.get(propertyDropDown)
+      .then((response) => {
+        setProperty(response.data.data);
+      })
+      .catch((response) => {
+        console.log(response);
+      });
+  }
+
+  
+
 
 
   return (
@@ -67,14 +87,15 @@ const Form = () => {
                 First Name
               </label>
               <div className="pt-1">
-                <input
+                <Input
+                  color="purple"
+                  label="Enter Your First Name"
                   type="text"
                   name="firstname"
                   id="firstname"
-                  placeholder="Enter your First Name"
                   required
                   autoComplete="true"
-                  className="w-full h-10 border-2 border-purple-400 p-2 rounded-lg"
+                  className="w-full h-10 p-2 rounded-lg"
                   onChange={(e) => setFirstName(e.target.value)}
 
                 />
@@ -85,14 +106,15 @@ const Form = () => {
                 Middle Name
               </label>
               <div className="pt-1">
-                <input
+                <Input
+                  color="purple"
+                  label="Enter your Middle Name"
                   type="text"
                   name="middlename"
                   id="middlename"
-                  placeholder="Enter your Middle Name"
                   required
                   autoComplete="true"
-                  className="w-full h-10 border-2 border-purple-400 p-2 rounded-lg"
+                  className="w-full h-10  p-2 rounded-lg"
                   onChange={(e) => setMiddleName(e.target.value)}
                 />
               </div>
@@ -103,14 +125,15 @@ const Form = () => {
               <label htmlFor="lastname">Last Name</label>
             </div>
             <div className="">
-              <input
+              <Input
+                color="purple"
+                label="Enter your Last Name"
                 type="text"
                 name="lastname"
                 id="lastname"
-                placeholder="Enter your Last Name"
                 required
                 autoComplete="true"
-                className="w-full h-10 border-2 border-purple-400 p-2 rounded-lg"
+                className="w-full h-10 p-2 rounded-lg"
                 onChange={(e) => setLastName(e.target.value)}
               />
             </div>
@@ -121,14 +144,16 @@ const Form = () => {
                 Birth Date
               </label>
               <div className="pt-1">
-                <input
+                <Input
+                color="purple"
+                label="Enter your birth date"
                   type="date"
                   name="birthdate"
                   id="birthdate"
                   placeholder="Enter your Birth Date"
                   required
                   autoComplete="true"
-                  className="w-full h-10 border-2 border-purple-400 p-2 rounded-lg"
+                  className="w-full h-10 border-1 p-2 rounded-lg"
                   onChange={(e) => setBirthDate(e.target.value)}
                 />
               </div>
@@ -138,14 +163,16 @@ const Form = () => {
                 Contact Number
               </label>
               <div className="pt-1">
-                <input
+                <Input
+                  color="purple"
+                  label="Enter your Contact Number"
                   type="text"
                   name="number"
                   id="number"
-                  placeholder="Enter your Contact Number"
                   required
                   autoComplete="true"
-                  className="w-full h-10 border-2 border-purple-400 p-2 rounded-lg"
+                  className="w-full h-10 p-2 rounded-lg"
+
                   onChange={(e) => setContactNumber(e.target.value)}
                 />
               </div>
@@ -156,14 +183,15 @@ const Form = () => {
               <label htmlFor="email">Email</label>
             </div>
             <div>
-              <input
+              <Input
+                color="purple"
+                label="Ex. yourname@gmail.com"
                 type="email"
                 name="email"
                 id="email"
-                placeholder="Ex. yourname@gmail.com"
                 required
                 autoComplete="true"
-                className="w-full h-10 border-2 border-purple-400 p-2 rounded-lg"
+                className="w-full h-10  p-2 rounded-lg"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -175,22 +203,12 @@ const Form = () => {
                 Location of Property
               </label>
               <div className="pt-1">
-                <select
-                  id="location"
-                  name="location"
-                  required
-                  className="w-full h-10 border-2 border-purple-400 p-2 rounded-lg text-gray-500"
-                  // value={value}
-                  // onChange={(e) => setValue(e.target.value)}
-                >
-                  <option value="">Select a Location...</option>
-                  <option value="">Meycauayan Bulacan</option>
-                  <option value="">Marilao Bulacan</option>
-                  <option value="">Santa Maria Bulacan</option>
-                  <option value="">Pandi Bulacan</option>
-                  <option value="">Metro Manila</option>
-                  <option value="">Cavite</option>
-                </select>
+                <Select color="purple" label="Location Of Property" id="location" name="location" required className="w-full h-10 p-2 rounded-lg text-gray-500"
+                  value={property} onChange={(e) => setProperty(e.target.value)}>
+                  {property.map((property) => (
+                    <Option key={property.id} value={property.id}>{property.name} - {property.city}, {property.province}</Option>
+                  ))}
+                </Select>
               </div>
             </div>
             <div className="pt-3 pb-1 ">
@@ -198,19 +216,37 @@ const Form = () => {
                 Monthly Salary
               </label>
               <div className="pt-1">
-                <input
-                  type="text"
+                <Input
+                  color="purple"
+                  label="Enter your Monthly Salary"
+                  type="number"
                   name="salary"
                   id="salary"
-                  placeholder="Enter your Monthly Salary"
                   required
                   autoComplete="true"
-                  className="w-full h-10 border-2 border-purple-400 p-2 rounded-lg text-gray-500"
+                  className="w-full h-10 p-2 rounded-lg text-gray-500"
                   onChange={(e) => setMonthlySalary(e.target.value)}
                 />
               </div>
             </div>
           </div>
+          <div className="pt-3 pb-1 ">
+              <label htmlFor="status" className="font-semibold">
+               Status:
+              </label>
+              <div className="pt-1">
+                <Input
+                  type="number"
+                  name="status"
+                  id="status"
+                  value={status}
+                  disabled
+                  autoComplete="true"
+                  className="w-full h-10 p-2 rounded-lg text-gray-500"
+                  onChange={(e) => setStatus(e.target.value)}
+                />
+              </div>
+            </div>
           <div className="pt-3 flex justify-end">
             <button
               type="submit"

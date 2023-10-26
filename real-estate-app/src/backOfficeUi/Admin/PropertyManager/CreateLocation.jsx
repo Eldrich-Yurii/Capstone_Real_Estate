@@ -7,17 +7,13 @@ import constants from '../../../components/Constant'
 import axios from 'axios'
 
 
-function CreateProperty({open, onClose}) {
+function CreateLocation({open, onClose}) {
   if (!open) 
   return null;
   const [openModal, setOpenModal] = useState(true)
 
-  const [propertyName, setPropertyName] = useState("");
-  const [developerId, setDeveloperId] = useState("");
-  const [squareMeter, setSquareMeter] = useState("");
-  const [price, setPrice] = useState("");
-  const [requiredIncome, setRequiredIncome] = useState(null);
-  const [location, setLocation] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setSetProvince] = useState("");
 
   const formEndpoint = `${constants.ENDPOINT}/api/properties`;
   // const propertyDropDown = `${constants.ENDPOINT}/api/properties`;
@@ -25,12 +21,8 @@ function CreateProperty({open, onClose}) {
     e.preventDefault();
 
     const payload = {
-      property_name: propertyName,
-      developer_id: developerId,
-      square_meter: squareMeter,
-      price: price,
-      required_income: requiredIncome,
-      location_id: location,
+      city: city,
+      province: province,
     }
 
     await axios.post(formEndpoint, payload)
@@ -259,4 +251,4 @@ function CreateProperty({open, onClose}) {
   )
 }
 
-export default CreateProperty
+export default CreateLocation

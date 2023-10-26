@@ -1,5 +1,5 @@
 import React from 'react'
-import { Fragment, useState } from 'react'
+import { Fragment, useState, } from 'react'
 import constants from '../../../components/Constant'
 import axios from 'axios'
 import { Dialog, Transition } from '@headlessui/react'
@@ -7,11 +7,11 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 
 
 
-function CreateClient({open, onClose}) {
+function UpdateModal({open, onClose}) {
    
   if (!open) 
   return null;
-  const [openModal, setOpenModal] = useState(true)
+  const [updateModal, setUpdateModal] = useState(true)
   
   const [firstName, setFirstName] = useState("");
   const [middleName, setMiddleName] = useState("");
@@ -21,11 +21,24 @@ function CreateClient({open, onClose}) {
   const [email, setEmail] = useState("");
   const [value, setValue] = useState("");
   const [monthlySalary, setMonthlySalary] = useState(null);
-  const [status, setStatus] = useState("");
 
-  const formEndpoint = `${constants.ENDPOINT}/api/inquiries`;
+  const formEndpoint = `${constants.ENDPOINT}/api/inquiries/`;
 
-  async function storeInquiries(e) {
+  useEffect(() => {
+    index();
+  }, []);
+
+  async function index() {
+    await axios.get(inquiryEndpoint + id)
+      .then((response) => {
+        setData(response.data.data);
+      })
+      .catch((response) => {
+        console.log(response);
+      });
+  }
+
+  async function updateInquiries(e) {
     e.preventDefault();
 
     const payload = {
@@ -36,25 +49,24 @@ function CreateClient({open, onClose}) {
       contact_number: contactNumber,
       email: email,
       property_id: value,
-      monthly_salary: monthlySalary,
-      status_id: status
+      monthly_salary: monthlySalary
     }
 
-    await axios.post(formEndpoint, payload)
+    await axios.put(formEndpoint, payload)
     .then((response) => {
-      console.log(response.data.data)
-      alert('Client Added Successfully!')
+      console.log(response.data)
+      alert('Updated Successfully!')
     })
     .catch((error) => {
       console.error(error);
-      alert('Adding Failed.')
+      alert('Update Failed.')
     });
   }
 
   return (
     <>
      <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10"  onClose={setOpenModal}>
+      <Dialog as="div" className="relative z-10"  onClose={setUpdateModal}>
         
           <div className="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity" />
      
@@ -77,7 +89,7 @@ function CreateClient({open, onClose}) {
                     <div className="mt-2 ml-4 md:lg:text-left">
                       <div className='flex justify-between'>
                         <h2 className="text-lg font-semibold leading-6 text-white bg-purple-700 p-2 px-7 -ml-6 rounded-r-full">
-                          Add Potential Client
+                          Update Client
                         </h2>
                         <button><AiFillCloseCircle onClick={onClose} className='pr-3 text-4xl -mt-7 text-gray-500 hover:scale-105 hover:text-red-500'/></button>
                       </div>
@@ -156,7 +168,6 @@ function CreateClient({open, onClose}) {
                               </div>
                             </div>
                           </div>
-
                           <div className='grid grid-cols-2 gap-3'>
                             <div className='pb-2'>
                               {/* Contact Number */}
@@ -250,31 +261,13 @@ function CreateClient({open, onClose}) {
                                 </div>
                               </div>
                           </div>
-
-                          <div className='pb-2'>
-                              {/* Status */}
-                              <div className='pb-2'>
-                                <label htmlFor="middleName" className='text-md font-semibold pl-2'>Status</label>
-                              </div>
-                              <div>
-                                <input 
-                                type="text" 
-                                name="status" 
-                                id="status"
-                                placeholder='Enter Status'
-                                value={status}
-                                className='pl-3 bg-gray-300 w-full h-10 rounded-2xl pr-3'
-                                onChange={(e) => setStatus(e.target.value)}
-                                />
-                              </div>
-                            </div>
                         
                            <div className='pt-4 pb-1 flex justify-end gap-8'>
                               <div className='bg-gray-300 py-2 px-4 rounded-2xl hover:bg-gray-400 hover:text-white'>
                                 <button type="reset" onClick={onClose}>Cancel</button>
                               </div>
                               <div className='text-white bg-purple-700 py-2 px-4 rounded-2xl hover:bg-purple-900'>
-                                <button onClick={storeInquiries}>Add Client</button>
+                                <button onClick={updateInquiries}>Update Client</button>
                               </div>
                           </div>
                         </form>
@@ -293,4 +286,4 @@ function CreateClient({open, onClose}) {
   )
 }
 
-export default CreateClient
+export default UpdateModal

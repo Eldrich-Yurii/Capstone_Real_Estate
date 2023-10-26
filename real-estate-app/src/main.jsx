@@ -11,12 +11,36 @@ import PropertyImages from './backOfficeUi/Admin/PropertyManager/PropertyImages'
 import AccountsManager from './backOfficeUi/Admin/AccountsManager/AccountsManager'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AdminPage from './backOfficeUi/Admin/AdminPage';
+import Locations from './backOfficeUi/Admin/PropertyManager/Locations';
+import Developers from './components/Developers/Developers';
+import Agent from './components/Agent/Agent';
+import Faqs from './components/Faqs/Faqs'
+import Properties from './page/Properties/Properties';
 
 const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <App />
+    element: <App />,
+    children:[
+      {
+        path:"/developers",
+        element:<Developers/>
+      },
+      {
+        path:"/about-agent",
+        element:<Agent/>
+      },
+      {
+        path:"/faqs",
+        element:<Faqs/>
+      },
+    ]
+  },
+
+  {
+    path:"/properties",
+    element: <Properties/>
   },
 
   {
@@ -39,6 +63,10 @@ const router = createBrowserRouter([
       {
         path:'/admin-dashboard/property-manager',
         element: <PropertyManager/>
+      },
+      {
+        path:'/admin-dashboard/locations',
+        element: <Locations/>
       },
       {
         path:'/admin-dashboard/property-images',

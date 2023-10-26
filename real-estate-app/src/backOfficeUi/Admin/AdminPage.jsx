@@ -5,6 +5,7 @@ import { List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, Accord
 import { PresentationChartBarIcon, Cog6ToothIcon, InboxIcon, PowerIcon, } from "@heroicons/react/24/solid";
 import { PiBuildingsFill } from 'react-icons/pi'
 import { FaThList, FaImages } from 'react-icons/fa'
+import { FaLocationDot } from 'react-icons/fa6'
 import Logo from './img/LOGO-NAME.svg'
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
@@ -56,6 +57,14 @@ const AdminPage = () => {
                     <PiBuildingsFill className="h-5 w-5 text-purple-500" />
                   </ListItemPrefix>
                     <Link to="/admin-dashboard/property-manager">Real Estate Management</Link>
+                </ListItem>
+
+              {/* List Of Locations  */}
+                <ListItem>
+                  <ListItemPrefix>
+                    <FaLocationDot className="h-5 w-5 text-purple-500" />
+                  </ListItemPrefix>
+                    <Link to="/admin-dashboard/locations">Locations</Link>
                 </ListItem>
 
               {/* List Of Properties CRUD  */}

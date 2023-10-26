@@ -2,8 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
-import { Button, Card, Typography } from "@material-tailwind/react";
-import Pic from "./img/Logo.png";
 import CreateProperty from "./CreateProperty";
 import axios from "axios";
 import constants from "../../../components/Constant";
@@ -11,7 +9,7 @@ import DataTable from "react-data-table-component";
 
 
 
-const RealEstateManagement = () => {
+const Locations = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const [data, setData] = useState();
@@ -19,44 +17,21 @@ const RealEstateManagement = () => {
   const [rows, setRows] = useState([]);
   const [selectedRows, setSelectedRows] = useState(false);
 
-  const propertyEndpoint = `${constants.ENDPOINT}/api/properties/`;
+  const locationEndpoint = `${constants.ENDPOINT}/api/property_locations`;
   // const deleteEndpoint = `${constants.ENDPOINT}/api/delete_properties/`;
 
   const columns = [
     {
       name: "ID",
-      selector: (row) => row.property_id,
-      height: "50px",
-    },
-    {
-      name: "Name",
-      selector: (row) => row.name,
-      sortable: true,
-    },
-    {
-      name: "Developer",
-      selector: (row) => row.developer_name,
-      sortable: true,
-    },
-    {
-      name: "Sqm",
-      selector: (row) => row.sqm,
-    },
-    {
-      name: "Price",
-      selector: (row) => row.price,
-    },
-    {
-      name: "Required Income",
-      selector: (row) => row.required_income,
+      selector: (row) => row.id,
     },
     {
       name: "City",
-      selector: (row) => row.city,
+      selector: (row) => row.city_name,
     },
     {
       name: "Province",
-      selector: (row) => row.province,
+      selector: (row) => row.province_name,
     },
     {
       name: "Created At",
@@ -84,9 +59,10 @@ const RealEstateManagement = () => {
   }, []);
 
   async function index() {
-    await axios.get(propertyEndpoint)
+    await axios.get(locationEndpoint)
       .then((response) => {
         setData(response.data.data);
+        console.log(response)
       })
       .catch((response) => {
         console.log(response);
@@ -102,8 +78,10 @@ const RealEstateManagement = () => {
   }
 
   const handleDelete = (id) => { 
-      destroy(id);
-
+    for (let i = 0; i< selectedRows.length; i++) {
+        destroy(selectedRows[i].id);
+        index();
+      }
   }
   
   const handleChange = ({ selectedRows }) => {
@@ -122,7 +100,7 @@ const RealEstateManagement = () => {
                 onClick={() => setOpenModal(true)}
                 className="flex items-center gap-2"
               >
-                Add Property
+                Add Location
                 <FaPlus />
               </button>
               <CreateProperty
@@ -131,7 +109,7 @@ const RealEstateManagement = () => {
               />
             </div>
             <div className="bg-red-700 text-md text-white p-3 rounded-full hover:scale-105 duration-150 ease-in-out">
-              <button onClick={() => handleDelete(data.property_id)}  className="flex items-center gap-2">
+              <button onClick={handleDelete}  className="flex items-center gap-2">
                  <FaTrash />
               </button>
             </div>
@@ -154,4 +132,4 @@ const RealEstateManagement = () => {
   );
 };
 
-export default RealEstateManagement;
+export default Locations;
