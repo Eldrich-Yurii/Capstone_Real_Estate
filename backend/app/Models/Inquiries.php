@@ -25,6 +25,10 @@ class Inquiries extends Model
         'email',
         'property_id',
         'monthly_salary',
-        'status_id',
+        'status_id'
+    ];
+
+    protected $casts = [
+        'property_id' => 'int'
     ];
 }

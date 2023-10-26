@@ -116,8 +116,12 @@ class PropertiesController extends Controller
     {
          // Select * from properties where id = $id;
          $property = Properties::find($id);
-         $property->delete();
          
+         
+         if ($property !== null){
+            $property->delete();
+         }
+
          return response()->json([
             "message" => "Deleted Succesfully",
             "data" => $property,

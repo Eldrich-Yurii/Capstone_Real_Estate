@@ -37,3 +37,5 @@ Route::apiResource('property_locations', PropertyLocationsController::class);
 Route::get('accounts', [AccountsController::class, 'index']);
 Route::post('login', [AccountsController::class, 'login']);
 Route::post('signup', [AccountsController::class,'signup']);
+
+// Route::delete('delete_properties/{id}', [PropertiesController::class,'destroy']);

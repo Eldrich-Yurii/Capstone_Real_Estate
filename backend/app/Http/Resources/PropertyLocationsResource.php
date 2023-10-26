@@ -15,8 +15,10 @@ class PropertyLocationsResource extends JsonResource
     public function toArray($request)
     {
         return [
+            "id" => $this->id,
             "city_name" => $this->city,
-            "province_name" => $this->province
+            "province_name" => $this->province,
+            "created_at" => $this->created_at
         ];
     }
 }

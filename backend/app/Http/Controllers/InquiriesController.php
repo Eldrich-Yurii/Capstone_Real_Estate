@@ -15,6 +15,7 @@ class InquiriesController extends Controller
      */
     public function index()
     {
+        // $inquiry = Inquiries::all();
         $inquiry = Inquiries::with('status')->get();
         return response()->json(["data" => InquiriesResource::collection($inquiry)]);
     }
