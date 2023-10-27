@@ -2,16 +2,15 @@ import React from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import CreateClient from "./CreateClient";
-import UpdateModal from "./ClientUpdate";
 import Datatable from "react-data-table-component";
 import constants from "../../../components/Constant";
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 
 
 const LeadPondUi = () => {
   const [openModal, setOpenModal] = useState(false);
-  const [updateModal, setUpdateModal] = useState(false);
   const [data, setData] = useState();
   const [pending, setPending] = useState(true);
 	const [rows, setRows] = useState([]);
@@ -71,7 +70,7 @@ const LeadPondUi = () => {
     {
       name: 'Edit',
       button: true,
-      cell: (row) => <button onClick={() => handleEdit(row.id)}>Edit</button>,
+      cell: (row) => <Link to="/admin-dashboard/update" onClick={() => handleEdit(row.id)}>Edit</Link>,
   },
   ];
 
@@ -112,10 +111,10 @@ const LeadPondUi = () => {
     setSelectedRows(selectedRows);
   };
 
-  const handleEdit = (row) => {
-    // setEditRows=(row)
-    // updateModal=(true)
-  }
+  // const handleEdit = (row) => {
+  //   // setEditRows=(row)
+  //   // updateModal=(true)
+  // }
 
 
 
@@ -148,9 +147,6 @@ const LeadPondUi = () => {
           progressPending={pending} 
           pagination selectableRows 
           onSelectedRowsChange={handleChange} />
-          <UpdateModal 
-          open={updateModal} 
-          onClose={() => setUpdateModal(false)}/>
         </div>
       </div>
     </>

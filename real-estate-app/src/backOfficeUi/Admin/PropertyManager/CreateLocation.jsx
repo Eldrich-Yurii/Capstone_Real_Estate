@@ -10,12 +10,12 @@ import axios from 'axios'
 function CreateLocation({open, onClose}) {
   if (!open) 
   return null;
-  const [openModal, setOpenModal] = useState(true)
+  const [openLocationModal, setOpenLocationModal] = useState(true)
 
   const [city, setCity] = useState("");
-  const [province, setSetProvince] = useState("");
+  const [province, setProvince] = useState("");
 
-  const formEndpoint = `${constants.ENDPOINT}/api/properties`;
+  const formEndpoint = `${constants.ENDPOINT}/api/property_locations`;
   // const propertyDropDown = `${constants.ENDPOINT}/api/properties`;
   async function storeProperty(e) {
     e.preventDefault();
@@ -32,28 +32,28 @@ function CreateLocation({open, onClose}) {
     })
     .catch((error) => {
       console.log(error);
-      alert('Sending Failed.')
+      alert(error)
     });
   }
   
-  useEffect(() => {
-    index();
-  }, []);
+  // useEffect(() => {
+  //   index();
+  // }, []);
 
-  async function index() {
-    await axios.get(propertyDropDown)
-      .then((response) => {
-        setLocation(response.data.data);
-      })
-      .catch((response) => {
-        console.log(response);
-      });
-  }
+  // async function index() {
+  //   await axios.get(formEndpoint)
+  //     .then((response) => {
+  //       setLocation(response.data.data);
+  //     })
+  //     .catch((response) => {
+  //       console.log(response);
+  //     });
+  // }
 
   return (
     <>
      <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10"  onClose={setOpenModal}>
+      <Dialog as="div" className="relative z-10"  onClose={setOpenLocationModal}>
         
           <div className="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity" />
      
@@ -83,150 +83,48 @@ function CreateLocation({open, onClose}) {
                       
                       <div className="mt-2">
                         <form action="" method="post" className=' p-1 pr-5'>
-                          <div>
-                            {/* Property */}
-                            <div className='pb-3'>
-                              <label htmlFor="property" className='text-md font-semibold pl-2'>Property</label>
-                            </div>
-                            <div className='pb-3'>
-                              <input 
-                              type="file" 
-                              name="property" 
-                              id="property" 
-                              
-                              className=' bg-gray-300 w-full rounded-r-full'/>
-                            </div>
-                          </div>
+                        
                           <div className='grid grid-cols-2 gap-3'>
                             <div className='pb-2'>
-                              {/* Name */}
+                              {/* City */}
                               <div className='pb-2'>
-                                <label htmlFor="name" className='text-md font-semibold pl-2'>Name</label>
+                                <label htmlFor="city" className='text-md font-semibold pl-2'>City</label>
                               </div>
                               <div>
                                 <Input 
-                                label="Property Name"
+                                label="City"
                                 color="purple"
                                 type="text" 
-                                name="name" 
-                                id="name" 
-                                value={propertyName}
+                                name="city" 
+                                id="city" 
+                                value={city}
                                 className='pl-3 bg-gray-300 w-full h-10'
-                                onChange={(e) => setPropertyName(e.target.value)}
+                                onChange={(e) => setCity(e.target.value)}
                                 />
                               </div>
                             </div>
                             
                             <div className='pb-2'>
-                              {/* Developer */}
+                              {/* Province */}
                               <div className='pb-2'>
-                                <label htmlFor="developer" className='text-md font-semibold pl-2'>Developer</label>
+                                <label htmlFor="province" className='text-md font-semibold pl-2'>Province</label>
                               </div>
                               <div>
                                 <Input 
-                                label="Property Developer"
+                                label="Province"
                                 color="purple"
                                 type="text" 
-                                name="developer" 
-                                id="developer"
-                                value={developerId}
+                                name="province" 
+                                id="province"
+                                value={province}
                                 className='pl-3 bg-gray-300 w-full h-10'
-                                onChange={(e) => setDeveloperId(e.target.value)}
+                                onChange={(e) => setProvince(e.target.value)}
                                 />
                               </div>
                             </div>
                           </div>
 
-                          <div className='grid grid-cols-2 gap-3'>
-                            <div className='pb-2'>
-                              {/* Square meters */}
-                              <div className='pb-2'>
-                                <label htmlFor="sqm" className='text-md font-semibold pl-2'>Square meters</label>
-                              </div>
-                              <div>
-                                <Input 
-                                label="Ex. 32"
-                                color="purple"
-                                type="text" 
-                                name="sqm" 
-                                id="sqm" 
-                                value={squareMeter}
-                                className='pl-3 bg-gray-300 w-full h-10 '
-                                onChange={(e) => setSquareMeter(e.target.value)}
-                                />
-                              </div>
-                            </div>
-                            <div className='pb-2'>
-                              {/* Price */}
-                              <div className='pb-2'>
-                                <label htmlFor="price" className='text-md font-semibold pl-2'>Price</label>
-                              </div>
-                              <div>
-                                <Input 
-                                label="Ex. Php 1000000"
-                                color="purple"
-                                type="text" 
-                                name="price" 
-                                id="price" 
-                                value={price}
-                                className='pl-3 bg-gray-300 w-full h-10 '
-                                onChange={(e) => setPrice(e.target.value)}
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div className='grid grid-cols-2 gap-3'>
-                            <div className='pb-2'>
-                              {/* Required Income */}
-                              <div className='pb-2'>
-                                <label htmlFor="requiredIncome" className='text-md font-semibold pl-2'>Required Income</label>
-                              </div>
-                              <div>
-                                <Input 
-                                label="Ex. 30000"
-                                color="purple"
-                                type="number" 
-                                name="requiredIncome" 
-                                id="requiredIncome" 
-                                value={requiredIncome}
-                                className='pl-3 bg-gray-300 w-full h-10 '
-                                onChange={(e) => setRequiredIncome(e.target.value)}
-                                />
-                              </div>
-                            </div>
-                            <div className='pb-2'>
-                              {/* Required Income */}
-                              <div className='pb-2'>
-                                <label htmlFor="location" className='text-md font-semibold pl-2'>Location ID</label>
-                              </div>
-                              <div>
-                                <Input 
-                                label="Enter Location"
-                                color="purple"
-                                type="text" 
-                                name="location" 
-                                id="location" 
-                                value={location}
-                                className='pl-3 bg-gray-300 w-full h-10 '
-                                onChange={(e) => setLocation(e.target.value)}
-                                />
-                              </div>
-                            </div>
-                            {/* <div className='pb-2'>
-                              <label htmlFor="location" className="font-semibold">
-                                Location of Property
-                              </label>
-                              <div className="pt-1">
-                                <Select color="purple" label="Location Of Property" id="location" name="location" required className="w-full h-10 p-2 text-gray-500"
-                                  value={value} onChange={(e) => setValue(e.target.value)}>
-                                  {value.map((property) => (
-                                    <Option key={property.id} value={property.id}>{property.name} - {property.city}, {property.province}</Option>
-                                  ))}
-                                </Select>
-                              </div>
-                            </div> */}
-                          </div>
-                      
+                         
                            <div className='pt-4 pb-1 flex justify-end gap-8'>
                               <div className='bg-gray-300 py-2 px-4 rounded-full hover:bg-gray-400 hover:text-white'>
                                 <button type="reset" onClick={onClose}>Cancel</button>

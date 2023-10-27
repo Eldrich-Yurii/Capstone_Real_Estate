@@ -20,7 +20,6 @@ const RealEstateManagement = () => {
   const [selectedRows, setSelectedRows] = useState(false);
 
   const propertyEndpoint = `${constants.ENDPOINT}/api/properties/`;
-  // const deleteEndpoint = `${constants.ENDPOINT}/api/delete_properties/`;
 
   const columns = [
     {
@@ -62,11 +61,11 @@ const RealEstateManagement = () => {
       name: "Created At",
       selector: (row) => row.created_at,
     },
-    // {
-    //   name: 'Edit',
-    //   button: true,
-    //   cell: (row) => <button onClick={() => handleEdit(row.id)}>Edit</button>,
-    // },
+    {
+      name: 'Edit',
+      button: true,
+      cell: (row) => <button onClick={() => handleEdit(row.id)}>Edit</button>,
+    },
     // {
     //   name: 'Delete',
     //   button: true,
@@ -94,16 +93,18 @@ const RealEstateManagement = () => {
   }
 
   async function destroy(id) {
-    await axios.delete(deleteEndpoint + id)
+    await axios.delete(propertyEndpoint + id)
     .then((response) => {
       console.log(response.data)
     })
   
   }
 
-  const handleDelete = (id) => { 
-      destroy(id);
-
+  const handleDelete = () => { 
+    for (let i = 0; i< selectedRows.length; i++) {
+      destroy(selectedRows[i].id);
+      index();
+    }   
   }
   
   const handleChange = ({ selectedRows }) => {
@@ -131,7 +132,7 @@ const RealEstateManagement = () => {
               />
             </div>
             <div className="bg-red-700 text-md text-white p-3 rounded-full hover:scale-105 duration-150 ease-in-out">
-              <button onClick={() => handleDelete(data.property_id)}  className="flex items-center gap-2">
+              <button onClick={handleDelete}  className="flex items-center gap-2">
                  <FaTrash />
               </button>
             </div>

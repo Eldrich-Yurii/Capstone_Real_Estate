@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
-import CreateProperty from "./CreateProperty";
+import CreateLocation from "./CreateLocation";
 import axios from "axios";
 import constants from "../../../components/Constant";
 import DataTable from "react-data-table-component";
@@ -10,7 +10,7 @@ import DataTable from "react-data-table-component";
 
 
 const Locations = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openLocationModal, setOpenLocationModal] = useState(false);
 
   const [data, setData] = useState();
   const [pending, setPending] = useState(true);
@@ -97,15 +97,15 @@ const Locations = () => {
             <div className="ml-[580px] bg-purple-700 text-white p-2 px-4 rounded-full hover:scale-105 duration-150 ease-in-out">
               <button
                 type="button"
-                onClick={() => setOpenModal(true)}
+                onClick={() => setOpenLocationModal(true)}
                 className="flex items-center gap-2"
               >
                 Add Location
                 <FaPlus />
               </button>
-              <CreateProperty
-                open={openModal}
-                onClose={() => setOpenModal(false)}
+              <CreateLocation
+                open={openLocationModal}
+                onClose={() => setOpenLocationModal(false)}
               />
             </div>
             <div className="bg-red-700 text-md text-white p-3 rounded-full hover:scale-105 duration-150 ease-in-out">

@@ -16,6 +16,7 @@ import Developers from './components/Developers/Developers';
 import Agent from './components/Agent/Agent';
 import Faqs from './components/Faqs/Faqs'
 import Properties from './page/Properties/Properties';
+import UpdateClient from './backOfficeUi/Admin/ClientsTable/UpdateClient';
 
 const router = createBrowserRouter([
 
@@ -75,9 +76,14 @@ const router = createBrowserRouter([
       {
         path : '/admin-dashboard/accounts-manager',
         element: <AccountsManager/>
+      },
+      {
+        path : '/admin-dashboard/update',
+        element: <UpdateClient/>
       }
     ]
-  }
+    
+    }
 
 ])
 
